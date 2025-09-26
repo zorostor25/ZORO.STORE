@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <link rel="icon" type="image/png" href="ZORO.STORE.jpeg"> 
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZORO STORE - السكنات</title>
+
+  <!-- خطوط وأيقونات -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      background-color: #f9fafb;
+      font-family: 'Cairo', sans-serif;
+    }
+
+    header { background-color: #1f3c2a; }
+
+    .card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px) scale(1.03);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    #mobileSectionsList {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding-right: 0;
+    }
+    #mobileSectionsList.open {
+      max-height: 500px;
+      padding-right: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+<header class="bg-[#1f3c2a] shadow-md sticky top-0 z-50">
+  <div class="container mx-auto flex items-center justify-between p-4">
+    <h1 class="text-2xl font-bold text-white">ZORO.STORE</h1>
+
+    <div class="flex items-center gap-3">
+      <nav id="mainNav" class="hidden md:flex items-center gap-6 text-white">
+        <a href="index.html" class="flex items-center gap-2 hover:text-yellow-400">
+          <i class="fas fa-home"></i> الرئيسية
+        </a>
+
+        <div class="relative">
+          <button id="sectionsBtn" class="flex items-center gap-2 hover:text-yellow-400 focus:outline-none" aria-expanded="false">
+            <i class="fas fa-th-large"></i> الأقسام
+            <i class="fas fa-chevron-down text-sm"></i>
+          </button>
+
+          <ul id="sectionsDropdown" class="dropdown-right absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg text-right py-2 hidden">
+            <li>
+              <a class="block px-4 py-2 text-[#1f3c2a] hover:bg-[#f0fdf4] hover:text-green-700 flex items-center gap-2" href="AP.html">
+                <i class="fas fa-tags text-green-600"></i> اشتراكات رقمية
+              </a>
+            </li>
+            <li>
+              <a class="block px-4 py-2 text-[#1f3c2a] hover:bg-[#f0fdf4] hover:text-green-700 flex items-center gap-2" href="PS4.html">
+                <i class="fab fa-playstation text-blue-700"></i> ألعاب سوني فور
+              </a>
+            </li>
+            <li>
+              <a class="block px-4 py-2 text-[#1f3c2a] hover:bg-[#f0fdf4] hover:text-green-700 flex items-center gap-2" href="PS5.html">
+                <i class="fab fa-playstation text-purple-600"></i> ألعاب سوني فايف
+              </a>
+            </li>
+            <li>
+              <a class="block px-4 py-2 text-[#1f3c2a] hover:bg-[#f0fdf4] hover:text-green-700 flex items-center gap-2" href="Xbox.html">
+                <i class="fab fa-xbox text-green-700"></i> ألعاب إكس بوكس
+              </a>
+            </li>
+            <li>
+              <a class="block px-4 py-2 text-[#1f3c2a] hover:bg-[#f0fdf4] hover:text-green-700 flex items-center gap-2" href="Currency Packs.html">
+                <i class="fas fa-coins text-yellow-500"></i> عملات الألعاب
+              </a>
+            </li>
+            <li>
+              <a class="block px-4 py-2 text-[#1f3c2a] hover:bg-[#f0fdf4] hover:text-green-700 flex items-center gap-2" href="skins.html">
+                <i class="fas fa-puzzle-piece text-purple-600"></i> السكنات
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <a href="#contact" class="flex items-center gap-2 hover:text-yellow-400">
+          <i class="fas fa-envelope"></i> تواصل معنا
+        </a>
+      </nav>
+
+      <button id="mobileBtn" class="md:hidden p-2 rounded-md focus:outline-none" aria-label="فتح القائمة">
+        <i class="fas fa-bars text-2xl text-white"></i>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobileMenu" class="md:hidden hidden border-t bg-white">
+    <nav class="flex flex-col p-4 gap-2 text-right">
+      <a href="index.html" class="py-2 flex items-center gap-2 text-[#1f3c2a] hover:bg-[#f0fdf4] hover:text-green-700">
+        <i class="fas fa-home"></i> الرئيسية
+      </a>
+
+      <button id="mobileSectionsBtn" class="py-2 flex items-center justify-between w-full text-[#1f3c2a] hover:text-green-700">
+        <span class="flex items-center gap-2"><i class="fas fa-th-large"></i> الأقسام</span>
+        <i class="fas fa-chevron-down"></i>
+      </button>
+
+      <div id="mobileSectionsList" class="flex-col hidden">
+        <a href="AP.html" class="py-2 flex items-center gap-2 text-[#1f3c2a] hover:bg-[#f0fdf4] hover:text-green-700">
+          <i class="fas fa-tags text-green-600"></i> اشتراكات رقمية
+        </a>
+        <a href="PS4.html" class="py-2 flex items-center gap-2 text-[#1f3c2a] hover:bg-[#f0fdf4] hover:text-green-700">
+          <i class="fab fa-playstation text-blue-700"></i> ألعاب سوني فور
+        </a>
+        <a href="PS5.html" class="py-2 flex items-center gap-2 text-[#1f3c2a] hover:bg-[#f0fdf4] hover:text-green-700">
+          <i class="fab fa-playstation text-purple-600"></i> ألعاب سوني فايف
+        </a>
+        <a href="Xbox.html" class="py-2 flex items-center gap-2 text-[#1f3c2a] hover:bg-[#f0fdf4] hover:text-green-700">
+          <i class="fab fa-xbox text-green-700"></i> ألعاب إكس بوكس
+        </a>
+        <a href="Currency Packs.html" class="py-2 flex items-center gap-2 text-[#1f3c2a] hover:bg-[#f0fdf4] hover:text-green-700">
+          <i class="fas fa-coins text-yellow-500"></i> عملات الألعاب
+        </a>
+        <a href="skins.html" class="py-2 flex items-center gap-2 text-[#1f3c2a] hover:bg-[#f0fdf4] hover:text-green-700">
+          <i class="fas fa-puzzle-piece text-purple-600"></i> السكنات
+        </a>
+      </div>
+
+      <a href="#contact" class="py-2 flex items-center gap-2 text-[#1f3c2a] hover:bg-[#f0fdf4] hover:text-green-700">
+        <i class="fas fa-envelope"></i> تواصل معنا
+      </a>
+    </nav>
+  </div>
+</header>
+
+<section class="container mx-auto py-12 px-4" id="skins">
+  <h2 class="text-3xl font-bold text-center mb-8 text-[#1f3c2a] flex items-center justify-center gap-2">
+    <i class="fas fa-puzzle-piece text-purple-600"></i> السكنات
+  </h2>
+
+  <h3 class="text-2xl font-semibold mt-12 mb-6 text-[#1f3c2a]">🔥 عروض خاصة لا تفوتك</h3>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="specialSkinsContainer"></div>
+
+  <h3 class="text-2xl font-semibold mb-6 text-[#1f3c2a]">⭐ السكنات الأساسية</h3>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="basicSkinsContainer"></div>
+</section>
+
+<footer class="bg-[#1f3c2a] text-white text-center py-4">
+  <p>جميع الحقوق محفوظة &copy; 2025 ZORO STORE</p>
+</footer>
+
+<script>
+  const sectionsBtn = document.getElementById('sectionsBtn');
+  const sectionsDropdown = document.getElementById('sectionsDropdown');
+  const mobileBtn = document.getElementById('mobileBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileSectionsBtn = document.getElementById('mobileSectionsBtn');
+  const mobileSectionsList = document.getElementById('mobileSectionsList');
+
+  // الأقسام سطح المكتب
+  sectionsBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    sectionsDropdown.classList.toggle('hidden');
+  });
+  document.addEventListener('click', (e) => {
+    if (!sectionsBtn.contains(e.target) && !sectionsDropdown.contains(e.target)) {
+      sectionsDropdown.classList.add('hidden');
+    }
+  });
+
+  // القائمة الهاتف
+  mobileBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+
+  // الأقسام الهاتف
+  mobileSectionsBtn.addEventListener('click', () => {
+    mobileSectionsList.classList.toggle('open');
+  });
+
+  // بيانات السكنات
+  const specialSkins = [
+    {name: '🧟‍♂️ طور الزومبي القديم', price: '٦ ريال', img: 'images/zombie.png'},
+    {name: '🕹️ سيزون 3 مضمون', price: '٨ ريال', img: 'images/season3.jpeg'},
+    {name: '😈 سكن شيطون', price: '٢٧ ريال', img: 'images/devil.jpg'},
+    {name: '🎧 سكن أيكونك', price: '٢٤ ريال', img: 'images/iconic.jpg'},
+    {name: '⚔️ سكن كريتوس', price: '١٦ ريال', img: 'images/kratos.jpg'}
+  ];
+  const basicSkins = [
+    {name: '+50 سكن', price: '٤ ريال', img: 'images/Skins.jpg'},
+    {name: '+100 سكن', price: '٦ ريال', img: 'images/Skins.jpg'},
+    {name: '+150 سكن', price: '٨ ريال', img: 'images/Skins.jpg'},
+    {name: '+200 سكن', price: '١٠ ريال', img: 'images/Skins.jpg'},
+    {name: '+250 سكن', price: '١٥ ريال', img: 'images/Skins.jpg'},
+    {name: '+300 سكن', price: '٢٠ ريال', img: 'images/Skins.jpg'},
+    {name: '+400 سكن', price: '٣٠ ريال', img: 'images/Skins.jpg'}
+  ];
+
+  function createCards(containerId, skins) {
+    const container = document.getElementById(containerId);
+    skins.forEach(item => {
+      const card = document.createElement('div');
+      card.className = 'bg-white rounded-2xl shadow-md overflow-hidden card';
+      card.innerHTML = `
+        <img src="${item.img}" alt="${item.name}" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold text-center">${item.name}</h3>
+          <p class="text-green-600 font-bold mt-2 text-center">${item.price}</p>
+          <div class="mt-4 flex gap-2">
+            <a href="https://wa.me/96879236441?text=مرحباً، أريد شراء ${item.name}" target="_blank"
+               class="flex-1 bg-green-600 text-white text-center py-2 rounded-xl hover:bg-green-700 transition">
+              <i class="fab fa-whatsapp"></i> واتساب
+            </a>
+            <a href="https://www.instagram.com/r.zoro_store/" target="_blank"
+               class="flex-1 bg-pink-500 text-white text-center py-2 rounded-xl hover:bg-pink-600 transition">
+              <i class="fab fa-instagram"></i> إنستجرام
+            </a>
+          </div>
+        </div>
+      `;
+      container.appendChild(card);
+    });
+  }
+
+  createCards('basicSkinsContainer', basicSkins);
+  createCards('specialSkinsContainer', specialSkins);
+</script>
+
+</body>
+</html>
