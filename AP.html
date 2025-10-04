@@ -2,12 +2,10 @@
 <html lang="ar" dir="rtl">
 <head>
   <link rel="icon" type="image/png" href="ZORO.STORE.jpeg"> 
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ZORO STORE - اشتراكات رقمية</title>
 
-  <!-- مكتبة الأيقونات وخطوط Tailwind -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
 
@@ -16,12 +14,8 @@
       background-color: #f9fafb;
       font-family: 'Cairo', sans-serif;
     }
+    header { background-color: #1f3c2a; }
 
-    header {
-      background-color: #1f3c2a;
-    }
-
-    /* تحسين البطاقة */
     .card {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
@@ -30,32 +24,20 @@
       box-shadow: 0 10px 20px rgba(0,0,0,0.2);
     }
 
-    /* القائمة في الهاتف */
-    #mobileMenu {
-      transition: max-height 0.4s ease;
-    }
+    #mobileMenu { transition: max-height 0.4s ease; }
   </style>
 </head>
 <body>
-  <!-- شريط العنوان -->
 <header class="bg-[#1f3c2a] shadow-md sticky top-0 z-50">
   <div class="container mx-auto flex items-center justify-between p-4">
     <h1 class="text-2xl font-bold text-white">ZORO.STORE</h1>
-
     <div class="flex items-center gap-3">
-      <!-- قائمة سطح المكتب -->
       <nav id="mainNav" class="hidden md:flex items-center gap-6 text-white">
-        <a href="index.html" class="flex items-center gap-2 hover:text-yellow-400">
-          <i class="fas fa-home"></i> الرئيسية
-        </a>
-
+        <a href="index.html" class="flex items-center gap-2 hover:text-yellow-400"><i class="fas fa-home"></i> الرئيسية</a>
         <div class="relative">
           <button id="sectionsBtn" class="flex items-center gap-2 hover:text-yellow-400 focus:outline-none" aria-expanded="false">
-            <i class="fas fa-th-large"></i>
-            <span>الأقسام</span>
-            <i class="fas fa-chevron-down text-sm"></i>
+            <i class="fas fa-th-large"></i><span>الأقسام</span><i class="fas fa-chevron-down text-sm"></i>
           </button>
-
           <ul id="sectionsDropdown" class="absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg text-right py-2 hidden">
             <li><a href="AP.html" class="block px-4 py-2 text-[#1f3c2a] hover:bg-[#f0fdf4] hover:text-green-700 flex gap-2"><i class="fas fa-tags text-green-600"></i> اشتراكات رقمية</a></li>
             <li><a href="PS4.html" class="block px-4 py-2 text-[#1f3c2a] hover:bg-[#f0fdf4] hover:text-green-700 flex gap-2"><i class="fab fa-playstation text-blue-700"></i> ألعاب سوني فور</a></li>
@@ -65,29 +47,18 @@
             <li><a href="skins.html" class="block px-4 py-2 text-[#1f3c2a] hover:bg-[#f0fdf4] hover:text-green-700 flex gap-2"><i class="fas fa-puzzle-piece text-purple-600"></i> السكنات</a></li>
           </ul>
         </div>
-
-        <a href="#contact" class="flex items-center gap-2 hover:text-yellow-400">
-          <i class="fas fa-envelope"></i> تواصل معنا
-        </a>
+        <a href="#contact" class="flex items-center gap-2 hover:text-yellow-400"><i class="fas fa-envelope"></i> تواصل معنا</a>
       </nav>
-
-      <button id="mobileBtn" class="md:hidden p-2 rounded-md focus:outline-none" aria-label="فتح القائمة">
-        <i class="fas fa-bars text-2xl text-white"></i>
-      </button>
+      <button id="mobileBtn" class="md:hidden p-2 rounded-md focus:outline-none" aria-label="فتح القائمة"><i class="fas fa-bars text-2xl text-white"></i></button>
     </div>
   </div>
 
   <div id="mobileMenu" class="md:hidden hidden border-t bg-white">
     <nav class="flex flex-col p-4 gap-2 text-right">
-      <a href="index.html" class="py-2 flex items-center gap-2 text-[#1f3c2a] hover:bg-[#f0fdf4] hover:text-green-700">
-        <i class="fas fa-home"></i> الرئيسية
-      </a>
-
+      <a href="index.html" class="py-2 flex items-center gap-2 text-[#1f3c2a] hover:bg-[#f0fdf4] hover:text-green-700"><i class="fas fa-home"></i> الرئيسية</a>
       <button id="mobileSectionsBtn" class="py-2 flex items-center justify-between w-full text-[#1f3c2a] hover:text-green-700">
-        <span class="flex items-center gap-2"><i class="fas fa-th-large"></i> الأقسام</span>
-        <i class="fas fa-chevron-down"></i>
+        <span class="flex items-center gap-2"><i class="fas fa-th-large"></i> الأقسام</span><i class="fas fa-chevron-down"></i>
       </button>
-
       <div id="mobileSectionsList" class="hidden flex-col pr-4">
         <a href="AP.html" class="py-2 flex items-center gap-2 text-[#1f3c2a] hover:bg-[#f0fdf4] hover:text-green-700"><i class="fas fa-tags text-green-600"></i> اشتراكات رقمية</a>
         <a href="PS4.html" class="py-2 flex items-center gap-2 text-[#1f3c2a] hover:bg-[#f0fdf4] hover:text-green-700"><i class="fab fa-playstation text-blue-700"></i> ألعاب سوني فور</a>
@@ -96,7 +67,6 @@
         <a href="Currency Packs.html" class="py-2 flex items-center gap-2 text-[#1f3c2a] hover:bg-[#f0fdf4] hover:text-green-700"><i class="fas fa-coins text-yellow-500"></i> عملات الألعاب</a>
         <a href="skins.html" class="py-2 flex items-center gap-2 text-[#1f3c2a] hover:bg-[#f0fdf4] hover:text-green-700"><i class="fas fa-puzzle-piece text-purple-600"></i> السكنات</a>
       </div>
-
       <a href="#contact" class="py-2 flex items-center gap-2 text-[#1f3c2a] hover:bg-[#f0fdf4] hover:text-green-700"><i class="fas fa-envelope"></i> تواصل معنا</a>
     </nav>
   </div>
@@ -111,26 +81,13 @@ document.addEventListener('DOMContentLoaded', function () {
   const mobileSectionsBtn = document.getElementById('mobileSectionsBtn');
   const mobileSectionsList = document.getElementById('mobileSectionsList');
 
-  if (sectionsBtn) {
-    sectionsBtn.addEventListener('click', e => {
-      e.stopPropagation();
-      sectionsDropdown.classList.toggle('hidden');
-      const expanded = sectionsBtn.getAttribute('aria-expanded') === 'true';
-      sectionsBtn.setAttribute('aria-expanded', !expanded);
-    });
-  }
-
-  document.addEventListener('click', () => {
-    sectionsDropdown.classList.add('hidden');
-    if (sectionsBtn) sectionsBtn.setAttribute('aria-expanded', 'false');
-  });
-
+  if (sectionsBtn) { sectionsBtn.addEventListener('click', e => { e.stopPropagation(); sectionsDropdown.classList.toggle('hidden'); const expanded = sectionsBtn.getAttribute('aria-expanded') === 'true'; sectionsBtn.setAttribute('aria-expanded', !expanded); }); }
+  document.addEventListener('click', () => { sectionsDropdown.classList.add('hidden'); if (sectionsBtn) sectionsBtn.setAttribute('aria-expanded', 'false'); });
   if (mobileBtn) mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
   if (mobileSectionsBtn) mobileSectionsBtn.addEventListener('click', () => mobileSectionsList.classList.toggle('hidden'));
 });
 </script>
 
-<!-- قسم الاشتراكات الرقمية -->
 <section class="container mx-auto py-12 px-4" id="subscriptions">
   <h2 class="text-3xl font-bold text-center mb-8 text-[#1f3c2a] flex items-center justify-center gap-2">
     <i class="fas fa-tags text-green-600"></i> اشتراكات رقمية
@@ -138,72 +95,87 @@ document.addEventListener('DOMContentLoaded', function () {
 
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
 
-    <!-- بطاقة نتفلكس -->
+    <!-- بطاقة كرانش رول -->
+    <div class="bg-white rounded-2xl shadow-md overflow-hidden card">
+      <img src="images/crunchyroll.jpg" alt="كرانش رول" class="w-full h-48 object-cover">
+      <div class="p-4">
+        <h3 class="text-xl font-semibold text-center">كرانش رول</h3>
+        <ul class="mt-3 space-y-2 text-center">
+          <li class="text-gray-700">شهر - ١ ريال</li>
+          <li class="text-gray-700">سنة - ٤ ريال</li>
+        </ul>
+        <div class="mt-4 flex gap-2">
+          <a href="https://wa.me/96879236441?text=مرحباً، أريد شراء اشتراك كرانش رول" target="_blank" class="flex-1 bg-green-600 text-white py-2 rounded-xl hover:bg-green-700 transition text-center"><i class="fab fa-whatsapp"></i> واتساب</a>
+          <a href="https://www.instagram.com/r.zoro_store/" target="_blank" class="flex-1 bg-pink-500 text-white py-2 rounded-xl hover:bg-pink-600 transition text-center"><i class="fab fa-instagram"></i> إنستجرام</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- بطاقة سناب بلس -->
+    <div class="bg-white rounded-2xl shadow-md overflow-hidden card">
+      <img src="images/app_snapplus.webp" alt="سناب بلس" class="w-full h-48 object-cover">
+      <div class="p-4">
+        <h3 class="text-xl font-semibold text-center">سناب بلس</h3>
+        <ul class="mt-3 space-y-2 text-center">
+          <li class="text-gray-700">٣ شهور - ٤ ريال</li>
+          <li class="text-gray-700">٦ شهور - ٧ ريال</li>
+          <li class="text-gray-700">سنة - ١٣ ريال</li>
+        </ul>
+        <div class="mt-4 flex gap-2">
+          <a href="https://wa.me/96879236441?text=مرحباً، أريد شراء اشتراك سناب بلس" target="_blank" class="flex-1 bg-green-600 text-white py-2 rounded-xl hover:bg-green-700 transition text-center"><i class="fab fa-whatsapp"></i> واتساب</a>
+          <a href="https://www.instagram.com/r.zoro_store/" target="_blank" class="flex-1 bg-pink-500 text-white py-2 rounded-xl hover:bg-pink-600 transition text-center"><i class="fab fa-instagram"></i> إنستجرام</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- بطاقة نتفلكس بعد الزيادة -->
     <div class="bg-white rounded-2xl shadow-md overflow-hidden card">
       <img src="images/netflix.png" alt="نتفلكس" class="w-full h-48 object-cover">
       <div class="p-4">
         <h3 class="text-xl font-semibold text-center">نتفلكس</h3>
         <ul class="mt-3 space-y-2 text-center">
-          <li class="text-gray-700">شهر - 1.2 ريال</li>
-          <li class="text-gray-700">٣ أشهر - 2.6 ريال</li>
-          <li class="text-gray-700">٦ أشهر - 4.4 ريال</li>
-          <li class="text-gray-700">سنة - 7.5 ريال</li>
+          <li class="text-gray-700">شهر - 2.2 ريال</li>
+          <li class="text-gray-700">٣ أشهر - 3.6 ريال</li>
+          <li class="text-gray-700">٦ أشهر - 5.4 ريال</li>
+          <li class="text-gray-700">سنة - 8.5 ريال</li>
         </ul>
         <div class="mt-4 flex gap-2">
-          <a href="https://wa.me/96879236441?text=مرحباً، أريد شراء اشتراك نتفلكس" target="_blank"
-             class="flex-1 bg-green-600 text-white py-2 rounded-xl hover:bg-green-700 transition text-center">
-            <i class="fab fa-whatsapp"></i> واتساب
-          </a>
-          <a href="https://www.instagram.com/r.zoro_store/" target="_blank"
-             class="flex-1 bg-pink-500 text-white py-2 rounded-xl hover:bg-pink-600 transition text-center">
-            <i class="fab fa-instagram"></i> إنستجرام
-          </a>
+          <a href="https://wa.me/96879236441?text=مرحباً، أريد شراء اشتراك نتفلكس" target="_blank" class="flex-1 bg-green-600 text-white py-2 rounded-xl hover:bg-green-700 transition text-center"><i class="fab fa-whatsapp"></i> واتساب</a>
+          <a href="https://www.instagram.com/r.zoro_store/" target="_blank" class="flex-1 bg-pink-500 text-white py-2 rounded-xl hover:bg-pink-600 transition text-center"><i class="fab fa-instagram"></i> إنستجرام</a>
         </div>
       </div>
     </div>
 
-    <!-- بطاقة شاهد ملف واحد -->
+    <!-- بطاقة شاهد ملف واحد بعد الزيادة -->
     <div class="bg-white rounded-2xl shadow-md overflow-hidden card">
       <img src="images/shahid.webp" alt="شاهد ملف واحد" class="w-full h-48 object-cover">
       <div class="p-4">
         <h3 class="text-xl font-semibold text-center">شاهد ملف واحد</h3>
         <ul class="mt-3 space-y-2 text-center">
-          <li class="text-gray-700">شهر - 1 ريال</li>
-          <li class="text-gray-700">٣ أشهر - 1.5 ريال</li>
-          <li class="text-gray-700">سنة - 5 ريال</li>
+          <li class="text-gray-700">شهر - 2 ريال</li>
+          <li class="text-gray-700">٣ أشهر - 2.5 ريال</li>
+          <li class="text-gray-700">سنة - 6 ريال</li>
         </ul>
         <div class="mt-4 flex gap-2">
-          <a href="https://wa.me/96879236441?text=مرحباً، أريد شراء اشتراك شاهد ملف واحد" target="_blank"
-             class="flex-1 bg-green-600 text-white py-2 rounded-xl hover:bg-green-700 transition text-center">
-            <i class="fab fa-whatsapp"></i> واتساب
-          </a>
-          <a href="https://www.instagram.com/r.zoro_store/" target="_blank"
-             class="flex-1 bg-pink-500 text-white py-2 rounded-xl hover:bg-pink-600 transition text-center">
-            <i class="fab fa-instagram"></i> إنستجرام
-          </a>
+          <a href="https://wa.me/96879236441?text=مرحباً، أريد شراء اشتراك شاهد ملف واحد" target="_blank" class="flex-1 bg-green-600 text-white py-2 rounded-xl hover:bg-green-700 transition text-center"><i class="fab fa-whatsapp"></i> واتساب</a>
+          <a href="https://www.instagram.com/r.zoro_store/" target="_blank" class="flex-1 bg-pink-500 text-white py-2 rounded-xl hover:bg-pink-600 transition text-center"><i class="fab fa-instagram"></i> إنستجرام</a>
         </div>
       </div>
     </div>
 
-    <!-- بطاقة شاهد حساب كامل 5 ملفات -->
+    <!-- بطاقة شاهد حساب كامل بعد الزيادة -->
     <div class="bg-white rounded-2xl shadow-md overflow-hidden card">
       <img src="images/shahid.webp" alt="شاهد حساب كامل" class="w-full h-48 object-cover">
       <div class="p-4">
         <h3 class="text-xl font-semibold text-center">شاهد حساب كامل (5 ملفات)</h3>
         <ul class="mt-3 space-y-2 text-center">
-          <li class="text-gray-700">شهر - 2.5 ريال</li>
-          <li class="text-gray-700">٣ أشهر - 4.5 ريال</li>
-          <li class="text-gray-700">سنة - 14 ريال</li>
+          <li class="text-gray-700">شهر - 3.5 ريال</li>
+          <li class="text-gray-700">٣ أشهر - 5.5 ريال</li>
+          <li class="text-gray-700">سنة - 15 ريال</li>
         </ul>
         <div class="mt-4 flex gap-2">
-          <a href="https://wa.me/96879236441?text=مرحباً، أريد شراء اشتراك شاهد حساب كامل" target="_blank"
-             class="flex-1 bg-green-600 text-white py-2 rounded-xl hover:bg-green-700 transition text-center">
-            <i class="fab fa-whatsapp"></i> واتساب
-          </a>
-          <a href="https://www.instagram.com/r.zoro_store/" target="_blank"
-             class="flex-1 bg-pink-500 text-white py-2 rounded-xl hover:bg-pink-600 transition text-center">
-            <i class="fab fa-instagram"></i> إنستجرام
-          </a>
+          <a href="https://wa.me/96879236441?text=مرحباً، أريد شراء اشتراك شاهد حساب كامل" target="_blank" class="flex-1 bg-green-600 text-white py-2 rounded-xl hover:bg-green-700 transition text-center"><i class="fab fa-whatsapp"></i> واتساب</a>
+          <a href="https://www.instagram.com/r.zoro_store/" target="_blank" class="flex-1 bg-pink-500 text-white py-2 rounded-xl hover:bg-pink-600 transition text-center"><i class="fab fa-instagram"></i> إنستجرام</a>
         </div>
       </div>
     </div>
@@ -216,6 +188,5 @@ document.addEventListener('DOMContentLoaded', function () {
 <footer class="bg-[#1f3c2a] text-white text-center py-4">
   <p>جميع الحقوق محفوظة &copy; 2025 ZORO STORE</p>
 </footer>
-
 </body>
 </html>
