@@ -3,44 +3,45 @@
 <head>
     <link rel="icon" type="image/png" href="ZORO.STORE.jpeg"> 
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ZORO STORE - السكنات</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZORO STORE - السكنات</title>
 
-  <!-- خطوط وأيقونات -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
+    <!-- خطوط وأيقونات -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
 
-  <style>
-    body {
-      background-color: #f9fafb;
-      font-family: 'Cairo', sans-serif;
-    }
+    <style>
+      body {
+        background-color: #f9fafb;
+        font-family: 'Cairo', sans-serif;
+      }
 
-    header { background-color: #1f3c2a; }
+      header { background-color: #1f3c2a; }
 
-    .card {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .card:hover {
-      transform: translateY(-5px) scale(1.03);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    }
+      .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .card:hover {
+        transform: translateY(-5px) scale(1.03);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      }
 
-    #mobileSectionsList {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease, padding 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      padding-right: 0;
-    }
-    #mobileSectionsList.open {
-      max-height: 500px;
-      padding-right: 1rem;
-    }
-  </style>
+      #mobileSectionsList {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease, padding 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding-right: 0;
+      }
+      #mobileSectionsList.open {
+        max-height: 500px;
+        padding-right: 1rem;
+      }
+    </style>
 </head>
 <body>
 
@@ -116,7 +117,7 @@
         <i class="fas fa-chevron-down"></i>
       </button>
 
-      <div id="mobileSectionsList" class="flex-col hidden">
+      <div id="mobileSectionsList" class="flex-col">
         <a href="AP.html" class="py-2 flex items-center gap-2 text-[#1f3c2a] hover:bg-[#f0fdf4] hover:text-green-700">
           <i class="fas fa-tags text-green-600"></i> اشتراكات رقمية
         </a>
@@ -190,31 +191,29 @@
   });
 
   // بيانات السكنات
-
-const specialSkins = [ 
+  const specialSkins = [ 
     {name: '🧟‍♂️ طور الزومبي القديم', price: '6 ريال', img: 'images/zombie.png'},
     {name: '🕹️ سيزون 3 مضمون', price: '10 ريال', img: 'images/season3.jpeg'}, 
     {name: '😈 سكن شيطون', price: '34 ريال', img: 'images/devil.jpg'},
     {name: '🎧 سكن أيكونك', price: '24 ريال', img: 'images/iconic.jpg'},
-    {name: '⚔️ سكن كريتوس', price: '16 ريال', img: 'images/kratos.jpg'}
+    {name: '⚔️ سكن كريتوس', price: '16 ريال', img: 'images/kratos.jpg'},
     {name: 'حساب عشوائي جودة عادية', price: '6 ريال', img: 'images/Skins.jpg'},
     {name: 'حساب عشوائي جودة متوسطة', price: '7 ريال', img: 'images/Skins.jpg'},
     {name: 'حساب جودة حلوة', price: '8 ريال', img: 'images/Skins.jpg'}
-];
+  ];
     
-const basicSkins = [
-  {name: 'ضمان + 50 سكن', price: '٦ ريال', img: 'images/Skins.jpg'},
-  {name: 'ضمان + 100 سكن', price: '٧ ريال', img: 'images/Skins.jpg'},
-  {name: 'ضمان + 125 سكن', price: '٨ ريال', img: 'images/Skins.jpg'},
-  {name: 'ضمان + 150 سكن', price: '٨.٥ ريال', img: 'images/Skins.jpg'},
-  {name: 'ضمان + 175 سكن', price: '١٠ ريال', img: 'images/Skins.jpg'},
-  {name: 'ضمان + 200 سكن', price: '١٣ ريال', img: 'images/Skins.jpg'},
-  {name: 'ضمان + 250 سكن', price: '١٦ ريال', img: 'images/Skins.jpg'},
-  {name: 'ضمان + 300 سكن', price: '٢٦ ريال', img: 'images/Skins.jpg'},
-  {name: 'ضمان + 400 سكن', price: '٣٠ ريال', img: 'images/Skins.jpg'},
-  {name: 'ضمان + 450 سكن', price: '٣٦ ريال', img: 'images/Skins.jpg'}
-];
-
+  const basicSkins = [
+    {name: 'ضمان + 50 سكن', price: '٦ ريال', img: 'images/Skins.jpg'},
+    {name: 'ضمان + 100 سكن', price: '٧ ريال', img: 'images/Skins.jpg'},
+    {name: 'ضمان + 125 سكن', price: '٨ ريال', img: 'images/Skins.jpg'},
+    {name: 'ضمان + 150 سكن', price: '٨.٥ ريال', img: 'images/Skins.jpg'},
+    {name: 'ضمان + 175 سكن', price: '١٠ ريال', img: 'images/Skins.jpg'},
+    {name: 'ضمان + 200 سكن', price: '١٣ ريال', img: 'images/Skins.jpg'},
+    {name: 'ضمان + 250 سكن', price: '١٦ ريال', img: 'images/Skins.jpg'},
+    {name: 'ضمان + 300 سكن', price: '٢٦ ريال', img: 'images/Skins.jpg'},
+    {name: 'ضمان + 400 سكن', price: '٣٠ ريال', img: 'images/Skins.jpg'},
+    {name: 'ضمان + 450 سكن', price: '٣٦ ريال', img: 'images/Skins.jpg'}
+  ];
 
   function createCards(containerId, skins) {
     const container = document.getElementById(containerId);
@@ -248,5 +247,3 @@ const basicSkins = [
 
 </body>
 </html>
-
-
