@@ -24,6 +24,7 @@
     /* البطاقات */
     .card {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
     }
 
     .card img {
@@ -51,7 +52,7 @@
     }
 
     #mobileSectionsList.open {
-      max-height: 500px;
+      max-height: 1000px;
       padding-right: 1rem;
     }
   </style>
@@ -61,7 +62,6 @@
   <!-- شريط العنوان -->
   <header class="shadow-md sticky top-0 z-50">
     <div class="container mx-auto flex items-center justify-between p-4">
-      <!-- الشعار -->
       <h1 class="text-2xl font-bold text-white">ZORO.STORE</h1>
 
       <div class="flex items-center gap-3">
@@ -173,74 +173,97 @@
       mobileSectionsBtn.addEventListener('click', () => mobileSectionsList.classList.toggle('open'));
 
       // البطاقات
-const currencies = [
-  {
-    name: 'فيبوكس',
-    img: 'images/currency1.jpg',
-    prices: [
-      { amount: '1000', price: '٤ ريال' },
-      { amount: '2800', price: '٨ ريال' },
-      { amount: '5000', price: '١٣ ريال' },
-      { amount: '13500', price: '٢٦ ريال' }
-    ]
-  },
-  {
-    name: 'كريدت روكت ليق',
-    img: 'images/currency2.jpg',
-    prices: [
-      { amount: '1100', price: '٤ ريال' },
-      { amount: '3000', price: '٨ ريال' },
-      { amount: '6500', price: '١٦ ريال' }
-    ]
-  },
-  {
-    name: 'كوينز فيفا',
-    img: 'images/currency3.png',
-    prices: [
-      { amount: '50000', price: '٢ ريال' },
-      { amount: '100000', price: '٤ ريال' },
-      { amount: '200000', price: '٦ ريال' },
-      { amount: '500000', price: '١١ ريال' },
-      { amount: '1000000', price: '٢١ ريال' }
-    ]
-  },
-  {
-    name: 'توكنز روكت ليق',
-    img: 'images/currency4.webp',
-    prices: [
-      { amount: '1200', price: '٤ ريال' },
-      { amount: '2500', price: '٧ ريال' }
-    ]
-  },
-  {
-    name: 'جواهر فري فاير',
-    img: 'images/freefire.jpg',
-    prices: [
-      { amount: '110 💎', price: '0.450 OMR' },
-      { amount: '210 💎', price: '0.850 OMR' },
-      { amount: '320 💎', price: '1.250 OMR' },
-      { amount: '580 💎', price: '1.950 OMR' },
-      { amount: '1188 💎', price: '3.750 OMR' },
-      { amount: '1508 💎', price: '4.900 OMR' },
-      { amount: '2420 💎', price: '7.400 OMR' },
-      { amount: '3000 💎', price: '9.050 OMR' },
-      { amount: '5000 💎', price: '15.000 OMR' },
-      { amount: '10000 💎', price: '30.000 OMR' }
-    ]
-  }
-];
-
+      const currencies = [
+        {
+          name: 'فيبوكس',
+          img: 'images/currency1.jpg',
+          prices: [
+            { amount: '1000', price: '٣.٥ ريال' },
+            { amount: '2800', price: '٧.٥ ريال' },
+            { amount: '5000', price: '١٢ ريال' },
+            { amount: '13500', price: '٢٦ ريال' }
+          ]
+        },
+        {
+          name: 'كريدت روكت ليق',
+          img: 'images/currency2.jpg',
+          prices: [
+            { amount: '1100', price: '٣.٥ ريال' },
+            { amount: '3000', price: '٧.٥ ريال' },
+            { amount: '6500', price: '١٥.٣٩ ريال' }
+          ]
+        },
+        {
+          name: 'فلوس جراند',
+          img: 'images/ps5_2.jpg', 
+          prices: [
+            { amount: '1.5 مليون', price: 'نص ريال' },
+            { amount: '3 مليون', price: '1 ريال' },
+            { amount: '4.5 مليون', price: '١.٥ ريال' },
+            { amount: '6 مليون', price: '2 ريال' },
+            { amount: '7.5 مليون', price: '٢.٥ ريال' },
+            { amount: '9 مليون', price: '3 ريال' },
+            { amount: '10.5 مليون', price: '٣.٥ ريال' }
+          ],
+          new: true
+        },
+        {
+          name: 'كوينز فيفا',
+          img: 'images/currency3.png',
+          prices: [
+            { amount: '50000', price: '٢ ريال' },
+            { amount: '100000', price: '٤ ريال' },
+            { amount: '200000', price: '٦ ريال' },
+            { amount: '500000', price: '١١ ريال' },
+            { amount: '1000000', price: '٢١ ريال' }
+          ]
+        },
+        {
+          name: 'توكنز روكت ليق',
+          img: 'images/currency4.webp',
+          prices: [
+            { amount: '1200', price: '٤ ريال' },
+            { amount: '2500', price: '٧ ريال' }
+          ]
+        },
+        {
+          name: 'جواهر فري فاير',
+          img: 'images/freefire.jpg',
+          prices: [
+            { amount: '110 💎', price: '0.450 OMR' },
+            { amount: '210 💎', price: '0.850 OMR' },
+            { amount: '320 💎', price: '1.250 OMR' },
+            { amount: '580 💎', price: '1.950 OMR' },
+            { amount: '1188 💎', price: '3.750 OMR' },
+            { amount: '1508 💎', price: '4.900 OMR' },
+            { amount: '2420 💎', price: '7.400 OMR' },
+            { amount: '3000 💎', price: '9.050 OMR' },
+            { amount: '5000 💎', price: '15.000 OMR' },
+            { amount: '10000 💎', price: '30.000 OMR' }
+          ]
+        }
+      ];
 
       function createCards(containerId, items) {
         const container = document.getElementById(containerId);
+        container.innerHTML = ''; // تنظيف المحتوى قبل الإضافة
         items.forEach(item => {
           const card = document.createElement('div');
-          card.className = 'bg-white rounded-2xl shadow-md overflow-hidden card';
+          card.className = 'bg-white rounded-2xl shadow-md overflow-hidden card relative';
+          
           let pricesHtml = '';
           item.prices.forEach(p => {
             pricesHtml += `<p class="text-green-600 font-bold text-center mt-1">${p.amount} → ${p.price}</p>`;
           });
+
+          // تاج جديد إذا موجود
+          let newBadge = '';
+          if(item.new) {
+            newBadge = `<span class="absolute top-3 left-3 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">جديد</span>`;
+          }
+
           card.innerHTML = `
+            ${newBadge}
             <img src="${item.img}" alt="${item.name}" loading="lazy" class="w-full h-48 object-cover">
             <div class="p-4">
               <h3 class="text-xl font-semibold text-center mb-2">${item.name}</h3>
@@ -267,4 +290,3 @@ const currencies = [
 
 </body>
 </html>
-
