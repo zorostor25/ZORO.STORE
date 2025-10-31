@@ -80,8 +80,15 @@ document.addEventListener('DOMContentLoaded', function(){
   // القوائم
   const sectionsBtn = document.getElementById('sectionsBtn');
   const sectionsDropdown = document.getElementById('sectionsDropdown');
-  sectionsBtn?.addEventListener('click', e => { e.stopPropagation(); sectionsDropdown.classList.toggle('hidden'); sectionsBtn.setAttribute('aria-expanded', sectionsDropdown.classList.contains('hidden') ? 'false' : 'true'); });
-  document.addEventListener('click', e => { if(!sectionsBtn.contains(e.target) && !sectionsDropdown.contains(e.target)) sectionsDropdown.classList.add('hidden'); });
+  sectionsBtn?.addEventListener('click', e => { 
+    e.stopPropagation(); 
+    sectionsDropdown.classList.toggle('hidden'); 
+    sectionsBtn.setAttribute('aria-expanded', sectionsDropdown.classList.contains('hidden') ? 'false' : 'true'); 
+  });
+  document.addEventListener('click', e => { 
+    if(!sectionsBtn.contains(e.target) && !sectionsDropdown.contains(e.target)) 
+      sectionsDropdown.classList.add('hidden'); 
+  });
 
   const mobileBtn = document.getElementById('mobileBtn');
   const mobileMenu = document.getElementById('mobileMenu');
@@ -104,7 +111,14 @@ document.addEventListener('DOMContentLoaded', function(){
     {name: 'رزدنت إيفل ٤', price: '٥ ريال', img: 'images/ps5_9.jpg'},
     {name: 'فيفا ٢٥', price: '٥ ريال', img: 'images/ps5_10.jpg'},
     {name: 'ردد ردمسن ٢', price: '٥ ريال', img: 'images/ps5_11.jpg'},
-    {name: 'كود بلاك أبس ٦', price: '٨ ريال', img: 'images/ps5_12.jpg'}
+    {name: 'كود بلاك أبس ٦', price: '٨ ريال', img: 'images/ps5_12.jpg'},
+
+    // 🔥 بطاقة بلايستيشن بلس الجديدة
+    {
+      name: 'بطاقة بلايستيشن بلس',
+      price: 'شهر: ٢.٨ ريال<br>٣ أشهر: ٦.٥ ريال<br>سنة: ١٢.٥ ريال',
+      img: 'images/psplus.jpg'
+    }
   ];
 
   function createCards(containerId, games){
@@ -116,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function(){
         <img src="${item.img}" alt="${item.name}" loading="lazy" class="w-full h-48 object-cover">
         <div class="p-4">
           <h3 class="text-xl font-semibold text-center">${item.name}</h3>
-          <p class="text-green-600 font-bold mt-2 text-center">${item.price}</p>
+          <p class="text-green-600 font-bold mt-2 text-center leading-relaxed">${item.price}</p>
           <div class="mt-4 flex gap-2">
             <a href="https://wa.me/96879236441?text=مرحباً، أريد شراء ${item.name}" target="_blank" class="flex-1 bg-green-600 text-white text-center py-2 rounded-xl hover:bg-green-700 transition">
               <i class="fab fa-whatsapp"></i> واتساب
@@ -136,3 +150,4 @@ document.addEventListener('DOMContentLoaded', function(){
 
 </body>
 </html>
+
