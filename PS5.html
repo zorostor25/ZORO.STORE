@@ -141,37 +141,58 @@
   const mobileSectionsList = document.getElementById('mobileSectionsList');
   mobileSectionsBtn.addEventListener('click', () => { mobileSectionsList.classList.toggle('open'); });
 
-  // بيانات الألعاب
+  // 🎮 قائمة ألعاب PS5 (محدثة + بطاقة بلس مع تاج "جديد")
   const ps5Games = [
-    {name: 'بلاك أبس ٧', price: '٩ ريال', img: 'images/ps5_1.png'},
-    {name: 'جراند ٥', price: '٤ ريال', img: 'images/ps5_2.jpg'},
+    // 🟡 بطاقة بلايستيشن بلس مميزة بخلفية ذهبية وتاج "جديد"
+    {
+      name: 'بطاقة بلايستيشن بلس',
+      price: 'شهر: ٢.٨ ريال<br>٣ أشهر: ٦.٥ ريال<br>سنة: ١٢.٥ ريال',
+      img: 'images/psplus.jpg',
+      special: true,
+      new: true
+    },
+
+    {name: 'بلاك أبس ٧', price: '٧.٨ ريال', img: 'images/ps5_1.png'},
+    {name: 'جراند ٥', price: '٢ ريال', img: 'images/ps5_2.jpg'},
     {name: 'فيفا ٢٦', price: '١٦ ريال', img: 'images/ps5_3.jpg'},
-    {name: 'فورزا هورايزن ٥', price: '١٠ ريال', img: 'images/ps5_4.jpg'},
-    {name: 'لاست أف أس', price: '٩ ريال', img: 'images/ps5_5.jpg'},
-    {name: 'سبايدر مان ٢', price: '١٤ ريال', img: 'images/ps5_6.jpg'},
-    {name: 'جود أف وور', price: '٩ ريال', img: 'images/ps5_7.jpg'},
-    {name: 'ماين كرافت', price: '٦ ريال', img: 'images/ps5_8.jpg'},
+    {name: 'فورزا هورايزن ٥', price: '٩.٥ ريال', img: 'images/ps5_4.jpg'},
+    {name: 'لاست أف أس', price: '٧.٥ ريال', img: 'images/ps5_5.jpg'},
+    {name: 'سبايدر مان ٢', price: '١٣.٥ ريال', img: 'images/ps5_6.jpg'},
+    {name: 'جود أف وور', price: '٨.٥ ريال', img: 'images/ps5_7.jpg'},
+    {name: 'ماين كرافت', price: '٥.٥ ريال', img: 'images/ps5_8.jpg'},
     {name: 'رزدنت إيفل ٤', price: '٦ ريال', img: 'images/ps5_9.jpg'},
-    {name: 'فيفا ٢٥', price: '٦ ريال', img: 'images/ps5_10.jpg'},
-    {name: 'ردد ردمسن ٢', price: '٦ ريال', img: 'images/ps5_11.jpg'},
-    {name: 'كود بلاك أبس ٦', price: '٩ ريال', img: 'images/ps5_12.jpg'}
+    {name: 'فيفا ٢٥', price: '٥.٥ ريال', img: 'images/ps5_10.jpg'},
+    {name: 'ردد ردمسن ٢', price: '٥.٥ ريال', img: 'images/ps5_11.jpg'},
+    {name: 'كود بلاك أبس ٦', price: '٨.٥ ريال', img: 'images/ps5_12.jpg'}
   ];
 
+  // إنشاء البطاقات تلقائيًا
   function createCards(containerId, games) {
     const container = document.getElementById(containerId);
     games.forEach(item => {
       const card = document.createElement('div');
-      card.className = 'bg-white rounded-2xl shadow-md overflow-hidden card';
+      card.className = item.special 
+        ? 'relative bg-gradient-to-br from-yellow-300 to-yellow-500 text-black rounded-2xl shadow-lg overflow-hidden card transform hover:scale-105 transition'
+        : 'bg-white rounded-2xl shadow-md overflow-hidden card hover:shadow-lg transition';
+      
+      // محتوى البطاقة
       card.innerHTML = `
-        <img src="${item.img}" alt="${item.name}" loading="lazy" class="w-full h-48 object-cover">
+        ${item.new ? `
+          <span class="absolute top-2 right-2 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-lg shadow-md z-10">
+            جديد
+          </span>` : ''}
+        <img src="${item.img}" alt="${item.name}" loading="lazy" 
+             class="w-full h-48 object-cover ${item.special ? 'border-b-4 border-yellow-600' : ''}">
         <div class="p-4">
           <h3 class="text-xl font-semibold text-center">${item.name}</h3>
-          <p class="text-green-600 font-bold mt-2 text-center">${item.price}</p>
+          <p class="${item.special ? 'text-black' : 'text-green-600'} font-bold mt-2 text-center leading-relaxed">${item.price}</p>
           <div class="mt-4 flex gap-2">
-            <a href="https://wa.me/96879236441?text=مرحباً، أريد شراء ${item.name}" target="_blank" class="flex-1 bg-green-600 text-white text-center py-2 rounded-xl hover:bg-green-700 transition">
+            <a href="https://wa.me/96879236441?text=مرحباً، أريد شراء ${item.name}" target="_blank" 
+               class="flex-1 ${item.special ? 'bg-yellow-700 hover:bg-yellow-800' : 'bg-green-600 hover:bg-green-700'} text-white text-center py-2 rounded-xl transition">
               <i class="fab fa-whatsapp"></i> واتساب
             </a>
-            <a href="https://www.instagram.com/r.zoro_store/" target="_blank" class="flex-1 bg-pink-500 text-white text-center py-2 rounded-xl hover:bg-pink-600 transition">
+            <a href="https://www.instagram.com/r.zoro_store/" target="_blank" 
+               class="flex-1 ${item.special ? 'bg-yellow-600 hover:bg-yellow-700' : 'bg-pink-500 hover:bg-pink-600'} text-white text-center py-2 rounded-xl transition">
               <i class="fab fa-instagram"></i> إنستجرام
             </a>
           </div>
@@ -186,3 +207,4 @@
 
 </body>
 </html>
+
