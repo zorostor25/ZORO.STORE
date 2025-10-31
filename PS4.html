@@ -99,26 +99,29 @@ document.addEventListener('DOMContentLoaded', function(){
   mobileSectionsBtn?.addEventListener('click', () => mobileSectionsList.classList.toggle('open'));
 
   // الألعاب
-  const ps4Games = [
-    {name: 'بلاك أبس ٧', price: '٨ ريال', img: 'images/ps5_1.png'},
-    {name: 'جراند ٥', price: '٣ ريال', img: 'images/ps5_2.jpg'},
-    {name: 'فيفا ٢٦', price: '١٥ ريال', img: 'images/ps5_3.jpg'},
-    {name: 'لاست أف أس', price: '٨ ريال', img: 'images/ps5_5.jpg'},
-    {name: 'سبايدر مان ٢', price: '١٣ ريال', img: 'images/ps5_6.jpg'},
-    {name: 'جود أف وور', price: '٨ ريال', img: 'images/ps5_7.jpg'},
-    {name: 'ماين كرافت', price: '٥ ريال', img: 'images/ps5_8.jpg'},
-    {name: 'رزدنت إيفل ٤', price: '٥ ريال', img: 'images/ps5_9.jpg'},
-    {name: 'فيفا ٢٥', price: '٥ ريال', img: 'images/ps5_10.jpg'},
-    {name: 'ردد ردمسن ٢', price: '٥ ريال', img: 'images/ps5_11.jpg'},
-    {name: 'كود بلاك أبس ٦', price: '٨ ريال', img: 'images/ps5_12.jpg'},
+const ps4Games = [
+  { 
+    name: 'بطاقة بلايستيشن بلس', 
+    price: 'شهر: ٢.٨ ريال<br>٣ أشهر: ٦.٥ ريال<br>سنة: ١٢.٥ ريال', 
+    img: 'images/psplus.jpg', 
+    special: false, 
+    new: true 
+  },
 
-    // 🔥 بطاقة بلايستيشن بلس الجديدة
-    {
-      name: 'بطاقة بلايستيشن بلس',
-      price: 'شهر: ٢.٨ ريال<br>٣ أشهر: ٦.٥ ريال<br>سنة: ١٢.٥ ريال',
-      img: 'images/psplus.jpg'
-    }
-  ];
+  {name: 'بلاك أبس ٧', price: '٦.٨ ريال', img: 'images/ps4_1.png'},
+  {name: 'جراند ٥', price: '١ ريال', img: 'images/ps4_2.jpg'},
+  {name: 'فيفا ٢٦', price: '١٥ ريال', img: 'images/ps4_3.jpg'},
+  {name: 'فورزا هورايزن ٥', price: '٨.٥ ريال', img: 'images/ps4_4.jpg'},
+  {name: 'لاست أف أس', price: '٦.٥ ريال', img: 'images/ps4_5.jpg'},
+  {name: 'سبايدر مان ٢', price: '١٢.٥ ريال', img: 'images/ps4_6.jpg'},
+  {name: 'جود أف وور', price: '٧.٥ ريال', img: 'images/ps4_7.jpg'},
+  {name: 'ماين كرافت', price: '٤.٥ ريال', img: 'images/ps4_8.jpg'},
+  {name: 'رزدنت إيفل ٤', price: '٥ ريال', img: 'images/ps4_9.jpg'},
+  {name: 'فيفا ٢٥', price: '٤.٥ ريال', img: 'images/ps4_10.jpg'},
+  {name: 'ردد ردمسن ٢', price: '٤.٥ ريال', img: 'images/ps4_11.jpg'},
+  {name: 'كود بلاك أبس ٦', price: '٧.٥ ريال', img: 'images/ps4_12.jpg'}
+];
+
 
   function createCards(containerId, games){
     const container = document.getElementById(containerId);
@@ -149,5 +152,6 @@ document.addEventListener('DOMContentLoaded', function(){
 
 </body>
 </html>
+
 
 
