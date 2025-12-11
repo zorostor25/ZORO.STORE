@@ -2,20 +2,19 @@
 <html lang="ar" dir="rtl">
 <head>
     <link rel="icon" type="image/png" href="ZORO.STORE.jpeg"> 
-
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ZORO STORE - ألعاب PS4</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body { background-color: #f9fafb; font-family: 'Cairo', sans-serif; }
-    header { background-color: #1f3c2a; }
-    .card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
-    .card:hover { transform: translateY(-5px) scale(1.03); box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
-    #mobileSectionsList { max-height: 0; overflow: hidden; transition: max-height 0.5s ease, padding 0.5s ease; display: flex; flex-direction: column; gap: 8px; padding-right: 0; }
-    #mobileSectionsList.open { max-height: 1000px; padding-right: 1rem; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZORO STORE - ألعاب PS4</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #f9fafb; font-family: 'Cairo', sans-serif; }
+        header { background-color: #1f3c2a; }
+        .card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .card:hover { transform: translateY(-5px) scale(1.03); box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
+        #mobileSectionsList { max-height: 0; overflow: hidden; transition: max-height 0.5s ease, padding 0.5s ease; display: flex; flex-direction: column; gap: 8px; padding-right: 0; }
+        #mobileSectionsList.open { max-height: 1000px; padding-right: 1rem; }
+    </style>
 </head>
 <body>
 
@@ -103,24 +102,38 @@ const ps4Games = [
   { 
     name: 'بطاقة بلايستيشن بلس', 
     price: 'شهر: ٢.٨ ريال<br>٣ أشهر: ٦.٥ ريال<br>سنة: ١٢.٥ ريال', 
-    img: 'images/psplus.jpg', 
-    special: false, 
-    new: true 
+    img: 'images/psplus.jpg'
   },
 
-  {name: 'بلاك أبس ٧', price: '٦.٨ ريال', img: 'images/ps5_1.png'},
-  {name: 'جراند ٥', price: '١ ريال', img: 'images/ps5_2.jpg'},
-  {name: 'فيفا ٢٦', price: '١٥ ريال', img: 'images/ps5_3.jpg'},
-  {name: 'لاست أف أس', price: '٦.٥ ريال', img: 'images/ps5_5.jpg'},
-  {name: 'سبايدر مان ٢', price: '١٢.٥ ريال', img: 'images/ps5_6.jpg'},
-  {name: 'جود أف وور', price: '٧.٥ ريال', img: 'images/ps5_7.jpg'},
-  {name: 'ماين كرافت', price: '٤.٥ ريال', img: 'images/ps5_8.jpg'},
-  {name: 'رزدنت إيفل ٤', price: '٥ ريال', img: 'images/ps5_9.jpg'},
-  {name: 'فيفا ٢٥', price: '٤.٥ ريال', img: 'images/ps5_10.jpg'},
-  {name: 'ردد ردمسن ٢', price: '٤.٥ ريال', img: 'images/ps5_11.jpg'},
-  {name: 'كود بلاك أبس ٦', price: '٧.٥ ريال', img: 'images/ps5_12.jpg'}
-];
+  // الألعاب القديمة بعد تعديل الأسعار وحذف سبايدر مان 2
+  { name: 'بلاك أبس ٧', price: '(فوري)<br>بحسابك الأساسي: ٤.٥ ريال', img: 'images/ps5_1.png' },
+  { name: 'جراند ٥', price: '(تأخير)<br>بحسابك الأساسي: ٣.٥ ريال<br>بنفس الحساب: ٢.٨ ريال', img: 'images/ps5_2.jpg' },
+  { name: 'فيفا ٢٦', price: '(تأخير)<br>بحسابك الأساسي: ٤.٥ ريال', img: 'images/ps5_3.jpg' },
+  { name: 'ذا لاست أف أس بارت ١', price: '(تأخير)<br>بحسابك الأساسي: ٢.٥ ريال', img: 'images/ps5_5.jpg' },
+  { name: 'جود أف وور', price: '(فوري)<br>بحسابك الأساسي: ٧ ريال', img: 'images/ps5_7.jpg' },
+  { name: 'ماين كرافت', price: '(تأخير)<br>بحسابك الأساسي: ٤ ريال<br>بنفس الحساب: ٣.٥ ريال', img: 'images/ps5_8.jpg' },
+  { name: 'رزدنت إيفل ٤', price: '(تأخير)<br>بحسابك الأساسي: ٣ ريال', img: 'images/ps5_9.jpg' },
+  { name: 'فيفا ٢٥', price: '(فوري)<br>بحسابك الأساسي: ٣ ريال', img: 'images/ps5_10.jpg' },
+  { name: 'ردد ردمشن ٢', price: '(فوري)<br>بحسابك الأساسي: ٢.٥ ريال', img: 'images/ps5_11.jpg' },
+  { name: 'بلاك أبس ٦', price: '(فوري)<br>بحسابك الأساسي: ٥.١ ريال', img: 'images/ps5_12.jpg' },
 
+  // الألعاب الجديدة
+  { name: 'لاست أف أس بارت ٢', price: '(تأخير)<br>بحسابك الأساسي: ٦ ريال', img: 'images/ps4_2.jpg' },
+  { name: 'NBA 2K25', price: '(فوري)<br>بحسابك الأساسي: ٤.٥ ريال', img: 'images/ps4_3.jpg' },
+  { name: 'هولو نايت', price: '(فوري)<br>بحسابك الأساسي: ٤ ريال', img: 'images/ps4_7.jpg' },
+  { name: 'كراش سيارات', price: '(فوري)<br>بحسابك الأساسي: ٣ ريال', img: 'images/ps4_12.jpg' },
+  { name: 'كراش مغامرات ٣ أجزاء', price: '(فوري)<br>بحسابك الأساسي: ٤ ريال', img: 'images/ps4_13.jpg' },
+  { name: 'سنو رنج محاكي التغريز', price: '(تأخير)<br>بحسابك الأساسي: ٤ ريال', img: 'images/ps4_14.jpg' },
+  { name: 'Little Nightmares 2', price: '(فوري)<br>بحسابك الأساسي: ٢ ريال', img: 'images/ps4_15.jpg' },
+  { name: 'ذا ويتشر ٣', price: '(تأخير)<br>بحسابك الأساسي: ٣.٥ ريال', img: 'images/ps4_16.jpg' },
+  { name: 'جراند ترزمو ٧', price: '(تأخير)<br>بحسابك الأساسي: ٦ ريال', img: 'images/ps4_17.jpg' },
+  { name: 'هيمين فال فات', price: '(تأخير)<br>بحسابك الأساسي: ٣ ريال', img: 'images/ps4_18.jpg' },
+  { name: 'كراش تيم رامبل', price: '(تأخير)<br>بحسابك الأساسي: ٤.٥ ريال<br>بنفس الحساب: ٣.٥ ريال', img: 'images/ps4_23.jpg' },
+  { name: 'سبايدر مان بيتر', price: '(تأخير)<br>بحسابك الأساسي: ٤.٦ ريال', img: 'images/ps4_24.jpg' },
+  { name: 'سبايدر مان مايلز', price: '(تأخير)<br>بحسابك الأساسي: ٤ ريال', img: 'images/ps4_25.jpg' },
+  { name: 'أتشارتيد نهايت اللص + الأرث المفقود', price: '(تأخير)<br>بحسابك الأساسي: ٣.٥ ريال', img: 'images/ps4_26.jpg' },
+  { name: 'ألدن رينج', price: '(تأخير)<br>بحسابك الأساسي: ٥ ريال<br>بنفس الحساب: ٧ ريال', img: 'images/ps4_27.jpg' }
+];
 
   function createCards(containerId, games){
     const container = document.getElementById(containerId);
@@ -151,8 +164,3 @@ const ps4Games = [
 
 </body>
 </html>
-
-
-
-
-
