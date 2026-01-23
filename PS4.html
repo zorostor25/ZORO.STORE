@@ -12,105 +12,111 @@
         body { background-color: #f9fafb; font-family: 'Cairo', sans-serif; }
         header { background-color: #1f3c2a; }
         .card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .card:hover { transform: translateY(-5px) scale(1.03); box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
+        .card:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
         
-        /* تصميم أزرار الفلترة الأصلية */
         .filter-btn {
             display: flex; align-items: center; gap: 8px; padding: 0.6rem 1.25rem; border-radius: 9999px;
             font-weight: 700; font-size: 0.95rem; transition: all 0.3s ease; background-color: white;
-            border: 1px solid #e5e7eb; color: #4b5563; box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border: 1px solid #e5e7eb; color: #4b5563;
         }
-        .filter-btn:hover { cursor: pointer; transform: translateY(-2px); background-color: #f3f4f6; }
         .filter-btn.active-btn { transform: scale(1.05); border-color: transparent; color: white; }
-        #filterAll.active-btn { background-color: #1f3c2a; box-shadow: 0 4px 15px rgba(31, 60, 42, 0.4); }
-        #filterInstant.active-btn { background: linear-gradient(135deg, #16a34a 0%, #15803d 100%); box-shadow: 0 4px 15px rgba(22, 163, 74, 0.4); }
-        #filterDelayed.active-btn { background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%); box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4); }
+        #filterAll.active-btn { background-color: #1f3c2a; }
+        #filterInstant.active-btn { background: linear-gradient(135deg, #16a34a 0%, #15803d 100%); }
+        #filterDelayed.active-btn { background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%); }
 
-        #mobileSectionsList { max-height: 0; overflow: hidden; transition: max-height 0.5s ease, padding 0.5s ease; display: flex; flex-direction: column; gap: 8px; padding-right: 0; }
-        #mobileSectionsList.open { max-height: 1000px; padding-right: 1rem; }
+        #mobileSectionsList { max-height: 0; overflow: hidden; transition: all 0.5s ease; }
+        #mobileSectionsList.open { max-height: 800px; padding: 10px 0; }
+        .z-dropdown { z-index: 9999 !important; }
     </style>
 </head>
 <body>
 
-<header class="bg-[#1f3c2a] shadow-md sticky top-0 z-50">
+<header class="bg-[#1f3c2a] shadow-md sticky top-0 z-[100]">
   <div class="container mx-auto flex items-center justify-between p-4">
     <h1 class="text-2xl font-bold text-white">ZORO.STORE</h1>
     <div class="flex items-center gap-3">
-      <nav id="mainNav" class="hidden md:flex items-center gap-6 text-white">
-        <a href="index.html" class="flex items-center gap-2 hover:text-yellow-400"><i class="fas fa-home"></i> الرئيسية</a>
-        <div class="relative">
+      <nav id="mainNav" class="hidden md:flex items-center gap-6 text-white font-bold">
+        <a href="index.html" class="hover:text-yellow-400">الرئيسية</a>
+        <div class="relative group">
           <button id="sectionsBtn" class="flex items-center gap-2 hover:text-yellow-400 focus:outline-none">
-            <i class="fas fa-th-large"></i> <span>الأقسام</span> <i class="fas fa-chevron-down text-sm"></i>
+            الأقسام <i class="fas fa-chevron-down text-sm"></i>
           </button>
-          <ul id="sectionsDropdown" class="absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg text-right py-2 hidden z-[60]">
-            <li><a href="AP.html" class="block px-4 py-2 text-[#1f3c2a] hover:bg-[#f0fdf4] flex items-center gap-2"><i class="fas fa-tags text-green-600"></i> اشتراكات رقمية</a></li>
-            <li><a href="PS4.html" class="block px-4 py-2 text-[#1f3c2a] hover:bg-[#f0fdf4] flex items-center gap-2 font-bold"><i class="fab fa-playstation text-blue-700"></i> ألعاب سوني فور</a></li>
-            <li><a href="PS5.html" class="block px-4 py-2 text-[#1f3c2a] hover:bg-[#f0fdf4] flex items-center gap-2"><i class="fab fa-playstation text-purple-600"></i> ألعاب سوني فايف</a></li>
-            <li><a href="Xbox.html" class="block px-4 py-2 text-[#1f3c2a] hover:bg-[#f0fdf4] flex items-center gap-2"><i class="fab fa-xbox text-green-700"></i> ألعاب إكس بوكس</a></li>
-            <li><a href="Currency Packs.html" class="block px-4 py-2 text-[#1f3c2a] hover:bg-[#f0fdf4] flex items-center gap-2"><i class="fas fa-coins text-yellow-500"></i> عملات الألعاب</a></li>
-            <li><a href="skins.html" class="block px-4 py-2 text-[#1f3c2a] hover:bg-[#f0fdf4] flex items-center gap-2"><i class="fas fa-puzzle-piece text-purple-600"></i> السكنات</a></li>
+          <ul id="sectionsDropdown" class="absolute right-0 mt-2 w-64 bg-white rounded-md shadow-2xl text-right py-2 hidden text-gray-800 z-dropdown">
+            <li><a href="AP.html" class="block px-4 py-2 hover:bg-green-50 border-b flex items-center gap-2"><i class="fas fa-tags text-green-600"></i> اشتراكات رقمية</a></li>
+            <li><a href="PS4.html" class="block px-4 py-2 bg-green-100 font-bold flex items-center gap-2"><i class="fab fa-playstation text-blue-700"></i> ألعاب سوني فور</a></li>
+            <li><a href="PS5.html" class="block px-4 py-2 hover:bg-green-50 border-b flex items-center gap-2"><i class="fab fa-playstation text-purple-600"></i> ألعاب سوني فايف</a></li>
+            <li><a href="Xbox.html" class="block px-4 py-2 hover:bg-green-50 border-b flex items-center gap-2"><i class="fab fa-xbox text-green-700"></i> ألعاب إكس بوكس</a></li>
+            <li><a href="PC.html" class="block px-4 py-2 hover:bg-green-50 border-b flex items-center gap-2"><i class="fas fa-desktop text-blue-500"></i> ألعاب بي سي (PC)</a></li>
+            <li><a href="Currency Packs.html" class="block px-4 py-2 hover:bg-green-50 border-b flex items-center gap-2"><i class="fas fa-coins text-yellow-500"></i> عملات الألعاب</a></li>
+            <li><a href="skins.html" class="block px-4 py-2 hover:bg-green-50 flex items-center gap-2"><i class="fas fa-puzzle-piece text-purple-600"></i> السكنات</a></li>
           </ul>
         </div>
-        <a href="https://wa.me/96879236441" class="flex items-center gap-2 hover:text-yellow-400"><i class="fas fa-envelope"></i> تواصل معنا</a>
+        <a href="https://wa.me/96879236441" class="hover:text-yellow-400">تواصل معنا</a>
       </nav>
       <button id="mobileBtn" class="md:hidden p-2 text-white"><i class="fas fa-bars text-2xl"></i></button>
     </div>
   </div>
-  <div id="mobileMenu" class="md:hidden hidden border-t bg-white">
-    <nav class="flex flex-col p-4 gap-2 text-right">
-      <a href="index.html" class="py-2 text-[#1f3c2a] border-b">الرئيسية</a>
-      <button id="mobileSectionsBtn" class="py-2 flex items-center justify-between w-full text-[#1f3c2a]">الأقسام <i class="fas fa-chevron-down"></i></button>
-      <div id="mobileSectionsList" class="hidden pr-4">
-        <a href="AP.html" class="py-2 block text-[#1f3c2a] border-b">اشتراكات رقمية</a>
-        <a href="PS4.html" class="py-2 block text-green-700 font-bold border-b">ألعاب سوني فور</a>
-        <a href="PS5.html" class="py-2 block text-[#1f3c2a]">ألعاب سوني فايف</a>
+  
+  <div id="mobileMenu" class="md:hidden hidden bg-white border-t shadow-lg">
+    <nav class="flex flex-col p-4 text-right font-bold">
+      <a href="index.html" class="py-3 border-b text-gray-700">الرئيسية</a>
+      <button id="mobileSectionsBtn" class="py-3 border-b text-gray-700 flex justify-between items-center">الأقسام <i class="fas fa-chevron-down"></i></button>
+      <div id="mobileSectionsList" class="bg-gray-50 pr-4">
+        <a href="AP.html" class="py-2 block border-b text-sm">اشتراكات رقمية</a>
+        <a href="PS4.html" class="py-2 block border-b text-sm text-green-700">ألعاب سوني فور</a>
+        <a href="PS5.html" class="py-2 block border-b text-sm">ألعاب سوني فايف</a>
+        <a href="Xbox.html" class="py-2 block border-b text-sm">ألعاب إكس بوكس</a>
+        <a href="PC.html" class="py-2 block border-b text-sm">ألعاب بي سي (PC)</a>
+        <a href="Currency Packs.html" class="py-2 block border-b text-sm">عملات الألعاب</a>
+        <a href="skins.html" class="py-2 block text-sm">السكنات</a>
       </div>
+      <a href="https://wa.me/96879236441" class="py-3 text-gray-700">تواصل معنا</a>
     </nav>
   </div>
 </header>
 
 <section class="container mx-auto py-12 px-4">
-  <h2 class="text-3xl font-bold text-center mb-8 text-[#1f3c2a] flex items-center justify-center gap-3">
-    <i class="fab fa-playstation text-blue-700"></i> ألعاب سوني فور
-  </h2>
+    <h2 class="text-3xl font-bold text-center mb-8 text-[#1f3c2a] flex items-center justify-center gap-3">
+        <i class="fab fa-playstation text-blue-700"></i> ألعاب سوني فور
+    </h2>
 
-  <div class="flex flex-wrap justify-center gap-4 mb-10">
-    <button id="filterAll" class="filter-btn active-btn"><i class="fas fa-border-all"></i> الكل</button>
-    <button id="filterInstant" class="filter-btn"><i class="fas fa-bolt"></i> تسليم فوري</button>
-    <button id="filterDelayed" class="filter-btn"><i class="far fa-clock"></i> تأخير (طلب)</button>
-  </div>
+    <div class="flex flex-wrap justify-center gap-4 mb-10">
+        <button id="filterAll" class="filter-btn active-btn"><i class="fas fa-border-all"></i> الكل</button>
+        <button id="filterInstant" class="filter-btn"><i class="fas fa-bolt"></i> تسليم فوري</button>
+        <button id="filterDelayed" class="filter-btn"><i class="far fa-clock"></i> تأخير (طلب)</button>
+    </div>
 
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="ps4GamesContainer"></div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="ps4GamesContainer"></div>
 </section>
 
 <script>
 document.addEventListener('DOMContentLoaded', function(){
     const ps4Games = [
-        { name: 'بلاك أبس ٧', status: 'فوري', price: 'بحسابك الأساسي: ٤.٥ ريال', img: 'images/ps5_1.jpg' },
-        { name: 'جراند ٥', status: 'تأخير', price: 'بحسابك الأساسي: ٣.٥ ريال<br>بنفس الحساب: ٢.٨ ريال', img: 'images/ps5_2.jpg' },
-        { name: 'فيفا ٢٦', status: 'تأخير', price: 'بحسابك الأساسي: ٤.٥ ريال', img: 'images/ps5_28.jpg' },
-        { name: 'ذا لاست أف أس بارت ١', status: 'تأخير', price: 'بحسابك الأساسي: ٢.٥ ريال', img: 'images/ps5_5.jpg' },
-        { name: 'جود أف وور', status: 'فوري', price: 'بحسابك الأساسي: ٧ ريال', img: 'images/ps5_29.jpg' },
-        { name: 'ماين كرافت', status: 'تأخير', price: 'بحسابك الأساسي: ٤ ريال<br>بنفس الحساب: ٣.٥ ريال', img: 'images/ps5_8.jpg' },
-        { name: 'رزدنت إيفل ٤', status: 'تأخير', price: 'بحسابك الأساسي: ٣ ريال', img: 'images/ps5_9.jpg' },
-        { name: 'فيفا ٢٥', status: 'فوري', price: 'بحسابك الأساسي: ٣ ريال', img: 'images/ps5_10.jpg' },
-        { name: 'ردد ردمشن ٢', status: 'فوري', price: 'بحسابك الأساسي: ٢.٥ ريال', img: 'images/ps5_11.jpg' },
-        { name: 'بلاك أبس ٦', status: 'فوري', price: 'بحسابك الأساسي: ٥.١ ريال', img: 'images/ps5_12.jpg' },
-        { name: 'لاست أف أس بارت ٢', status: 'تأخير', price: 'بحسابك الأساسي: ٦ ريال', img: 'images/ps5_30.jpg' },
-        { name: 'NBA 2K25', status: 'فوري', price: 'بحسابك الأساسي: ٤.٥ ريال', img: 'images/ps5_3.jpg' },
-        { name: 'هولو نايت', status: 'فوري', price: 'بحسابك الأساسي: ٤ ريال', img: 'images/ps5_7.jpg' },
-        { name: 'كراش سيارات', status: 'فوري', price: 'بحسابك الأساسي: ٣ ريال', img: 'images/ps5_12.jpg' },
-        { name: 'كراش مغامرات ٣ أجزاء', status: 'فوري', price: 'بحسابك الأساسي: ٤ ريال', img: 'images/ps5_13.jpg' },
-        { name: 'سنو رنج محاكي التغريز', status: 'تأخير', price: 'بحسابك الأساسي: ٤ ريال', img: 'images/ps5_14.jpg' },
-        { name: 'Little Nightmares 2', status: 'فوري', price: 'بحسابك الأساسي: ٢ ريال', img: 'images/ps5_15.jpg' },
-        { name: 'ذا ويتشر ٣', status: 'تأخير', price: 'بحسابك الأساسي: ٣.٥ ريال', img: 'images/ps5_16.jpg' },
-        { name: 'جراند ترزمو ٧', status: 'تأخير', price: 'بحسابك الأساسي: ٦ ريال', img: 'images/ps5_17.jpg' },
-        { name: 'هيمين فال فات', status: 'تأخير', price: 'بحسابك الأساسي: ٣ ريال', img: 'images/ps5_18.jpg' },
-        { name: 'كراش تيم رامبل', status: 'تأخير', price: 'بحسابك الأساسي: ٤.٥ ريال<br>بنفس الحساب: ٣.٥ ريال', img: 'images/ps5_23.jpg' },
-        { name: 'سبايدر مان بيتر', status: 'تأخير', price: 'بحسابك الأساسي: ٤.٦ ريال', img: 'images/ps5_36.jpg' },
-        { name: 'سبايدر مان مايلز', status: 'تأخير', price: 'بحسابك الأساسي: ٤ ريال', img: 'images/ps5_37.jpg' },
-        { name: 'أتشارتيد نهايت اللص + الأرث المفقود', status: 'تأخير', price: 'بحسابك الأساسي: ٣.٥ ريال', img: 'images/ps5_26.jpg' },
-        { name: 'ألدن رينج', status: 'تأخير', price: 'بحسابك الأساسي: ٥ ريال<br>بنفس الحساب: ٧ ريال', img: 'images/ps5_27.jpg' }
+        { name: 'بلاك أبس ٧', status: 'فوري', price: 'أساسي: ٤.٥ ر.ع', img: 'images/ps5_1.jpg' },
+        { name: 'جراند ٥', status: 'تأخير', price: 'أساسي: ٣.٥ ر.ع | حساب: ٢.٨ ر.ع', img: 'images/ps5_2.jpg' },
+        { name: 'فيفا ٢٦', status: 'تأخير', price: 'أساسي: ٤.٥ ر.ع', img: 'images/ps5_28.jpg' },
+        { name: 'ذا لاست أف أس بارت ١', status: 'تأخير', price: 'أساسي: ٢.٥ ر.ع', img: 'images/ps5_5.jpg' },
+        { name: 'جود أف وور', status: 'فوري', price: 'أساسي: ٧ ر.ع', img: 'images/ps5_29.jpg' },
+        { name: 'ماين كرافت', status: 'تأخير', price: 'أساسي: ٤ ر.ع | حساب: ٣.٥ ر.ع', img: 'images/ps5_8.jpg' },
+        { name: 'رزدنت إيفل ٤', status: 'تأخير', price: 'أساسي: ٣ ر.ع', img: 'images/ps5_9.jpg' },
+        { name: 'فيفا ٢٥', status: 'فوري', price: 'أساسي: ٣ ر.ع', img: 'images/ps5_10.jpg' },
+        { name: 'ردد ردمشن ٢', status: 'فوري', price: 'أساسي: ٢.٥ ر.ع', img: 'images/ps5_11.jpg' },
+        { name: 'بلاك أبس ٦', status: 'فوري', price: 'أساسي: ٥.١ ر.ع', img: 'images/ps5_12.jpg' },
+        { name: 'لاست أف أس بارت ٢', status: 'تأخير', price: 'أساسي: ٦ ر.ع', img: 'images/ps5_30.jpg' },
+        { name: 'NBA 2K25', status: 'فوري', price: 'أساسي: ٤.٥ ر.ع', img: 'images/ps5_3.jpg' },
+        { name: 'هولو نايت', status: 'فوري', price: 'أساسي: ٤ ر.ع', img: 'images/ps5_7.jpg' },
+        { name: 'كراش سيارات', status: 'فوري', price: 'أساسي: ٣ ر.ع', img: 'images/ps5_12.jpg' },
+        { name: 'كراش مغامرات ٣ أجزاء', status: 'فوري', price: 'أساسي: ٤ ر.ع', img: 'images/ps5_13.jpg' },
+        { name: 'سنو رنج محاكي التغريز', status: 'تأخير', price: 'أساسي: ٤ ر.ع', img: 'images/ps5_14.jpg' },
+        { name: 'Little Nightmares 2', status: 'فوري', price: 'أساسي: ٢ ر.ع', img: 'images/ps5_15.jpg' },
+        { name: 'ذا ويتشر ٣', status: 'تأخير', price: 'أساسي: ٣.٥ ر.ع', img: 'images/ps5_16.jpg' },
+        { name: 'جراند ترزمو ٧', status: 'تأخير', price: 'أساسي: ٦ ر.ع', img: 'images/ps5_17.jpg' },
+        { name: 'هيمين فال فات', status: 'تأخير', price: 'أساسي: ٣ ر.ع', img: 'images/ps5_18.jpg' },
+        { name: 'كراش تيم رامبل', status: 'تأخير', price: 'أساسي: ٤.٥ ر.ع | حساب: ٣.٥ ر.ع', img: 'images/ps5_23.jpg' },
+        { name: 'سبايدر مان بيتر', status: 'تأخير', price: 'أساسي: ٤.٦ ر.ع', img: 'images/ps5_36.jpg' },
+        { name: 'سبايدر مان مايلز', status: 'تأخير', price: 'أساسي: ٤ ر.ع', img: 'images/ps5_37.jpg' },
+        { name: 'أتشارتيد (نهاية لص + الأرث)', status: 'تأخير', price: 'أساسي: ٣.٥ ر.ع', img: 'images/ps5_26.jpg' },
+        { name: 'ألدن رينج', status: 'تأخير', price: 'أساسي: ٥ ر.ع | حساب: ٧ ر.ع', img: 'images/ps5_27.jpg' }
     ];
 
     function displayGames(filter = 'الكل'){
@@ -120,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function(){
             if(filter === 'الكل' || item.status === filter) {
                 const bColor = item.status === 'فوري' ? 'bg-green-600' : 'bg-red-600';
                 const card = document.createElement('div');
-                card.className = 'bg-white rounded-2xl shadow-md overflow-hidden card';
+                card.className = 'bg-white rounded-2xl shadow-md overflow-hidden card border border-gray-100';
                 card.innerHTML = `
                     <div class="relative">
                         <img src="${item.img}" class="w-full h-48 object-cover">
@@ -129,10 +135,10 @@ document.addEventListener('DOMContentLoaded', function(){
                         </div>
                     </div>
                     <div class="p-4">
-                        <h3 class="text-xl font-bold text-center mb-2">${item.name}</h3>
-                        <p class="text-green-600 font-bold text-center bg-green-50 py-2 rounded-lg border border-green-100">${item.price}</p>
+                        <h3 class="text-lg font-bold text-center mb-2 h-14 flex items-center justify-center">${item.name}</h3>
+                        <p class="text-green-600 font-bold text-center bg-green-50 py-2 rounded-lg border border-green-100 text-sm">${item.price}</p>
                         <div class="mt-4 flex gap-2">
-                            <a href="https://api.whatsapp.com/send?phone=96879236441&text=أريد شراء ${encodeURIComponent(item.name)}" target="_blank" class="flex-1 bg-green-600 text-white text-center py-2 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-green-700">
+                            <a href="https://api.whatsapp.com/send?phone=96879236441&text=طلب PS4: ${encodeURIComponent(item.name)}" target="_blank" class="flex-1 bg-green-600 text-white text-center py-2 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-green-700">
                                 <i class="fab fa-whatsapp"></i> شراء
                             </a>
                             <a href="https://www.instagram.com/r.zoro_store/" target="_blank" class="w-12 bg-gradient-to-tr from-yellow-500 via-pink-500 to-purple-500 text-white rounded-xl flex items-center justify-center hover:opacity-90 transition">
