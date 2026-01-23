@@ -7,7 +7,6 @@
   <link rel="icon" type="image/png" href="ZORO.STORE.jpeg">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-
   <style>
     body { background-color: #f9fafb; font-family: 'Cairo', sans-serif; }
     header { background-color: #1f3c2a; }
@@ -26,13 +25,44 @@
     <div class="flex items-center gap-3">
       <nav class="hidden md:flex items-center gap-6 text-white">
         <a href="index.html" class="flex items-center gap-2 hover:text-yellow-400"><i class="fas fa-home"></i> الرئيسية</a>
+
+        <div class="relative">
+          <button id="sectionsBtn" class="flex items-center gap-2 hover:text-yellow-400 focus:outline-none" aria-expanded="false">
+            <i class="fas fa-th-large"></i> الأقسام <i class="fas fa-chevron-down text-sm"></i>
+          </button>
+          <ul id="sectionsDropdown" class="absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg text-right py-2 hidden">
+            <li><a href="AP.html" class="block px-4 py-2 text-[#1f3c2a] hover:bg-[#f0fdf4] hover:text-green-700 flex items-center gap-2"><i class="fas fa-tags text-green-600"></i> اشتراكات رقمية</a></li>
+            <li><a href="PS4.html" class="block px-4 py-2 text-[#1f3c2a] hover:bg-[#f0fdf4] hover:text-green-700 flex items-center gap-2"><i class="fab fa-playstation text-blue-700"></i> ألعاب سوني فور</a></li>
+            <li><a href="PS5.html" class="block px-4 py-2 text-[#1f3c2a] hover:bg-[#f0fdf4] hover:text-green-700 flex items-center gap-2"><i class="fab fa-playstation text-purple-600"></i> ألعاب سوني فايف</a></li>
+            <li><a href="Xbox.html" class="block px-4 py-2 text-[#1f3c2a] hover:bg-[#f0fdf4] hover:text-green-700 flex items-center gap-2"><i class="fab fa-xbox text-green-700"></i> ألعاب إكس بوكس</a></li>
+            <li><a href="Currency Packs.html" class="block px-4 py-2 text-[#1f3c2a] hover:bg-[#f0fdf4] hover:text-green-700 flex items-center gap-2"><i class="fas fa-coins text-yellow-500"></i> عملات الألعاب</a></li>
+            <li><a href="skins.html" class="block px-4 py-2 text-[#1f3c2a] hover:bg-[#f0fdf4] hover:text-green-700 flex items-center gap-2"><i class="fas fa-puzzle-piece text-purple-600"></i> السكنات</a></li>
+          </ul>
+        </div>
+
         <a href="#contact" class="flex items-center gap-2 hover:text-yellow-400"><i class="fas fa-envelope"></i> تواصل معنا</a>
       </nav>
 
-      <button id="mobileBtn" class="md:hidden p-2 rounded-md">
+      <button id="mobileBtn" class="md:hidden p-2 rounded-md focus:outline-none">
         <i class="fas fa-bars text-2xl text-white"></i>
       </button>
     </div>
+  </div>
+
+  <div id="mobileMenu" class="md:hidden hidden border-t bg-white">
+    <nav class="flex flex-col p-4 gap-2 text-right">
+      <a href="index.html" class="py-2 flex items-center gap-2 text-[#1f3c2a] hover:bg-[#f0fdf4] hover:text-green-700"><i class="fas fa-home"></i> الرئيسية</a>
+      <button id="mobileSectionsBtn" class="py-2 flex items-center justify-between w-full text-[#1f3c2a] hover:text-green-700"><span class="flex items-center gap-2"><i class="fas fa-th-large"></i> الأقسام</span><i class="fas fa-chevron-down"></i></button>
+      <div id="mobileSectionsList" class="hidden flex-col pr-4">
+        <a href="AP.html" class="py-2 flex items-center gap-2 text-[#1f3c2a] hover:bg-[#f0fdf4] hover:text-green-700"><i class="fas fa-tags text-green-600"></i> اشتراكات رقمية</a>
+        <a href="PS4.html" class="py-2 flex items-center gap-2 text-[#1f3c2a] hover:bg-[#f0fdf4] hover:text-green-700"><i class="fab fa-playstation text-blue-700"></i> ألعاب سوني فور</a>
+        <a href="PS5.html" class="py-2 flex items-center gap-2 text-[#1f3c2a] hover:bg-[#f0fdf4] hover:text-green-700"><i class="fab fa-playstation text-purple-600"></i> ألعاب سوني فايف</a>
+        <a href="Xbox.html" class="py-2 flex items-center gap-2 text-[#1f3c2a] hover:bg-[#f0fdf4] hover:text-green-700"><i class="fab fa-xbox text-green-700"></i> ألعاب إكس بوكس</a>
+        <a href="Currency Packs.html" class="py-2 flex items-center gap-2 text-[#1f3c2a] hover:bg-[#f0fdf4] hover:text-green-700"><i class="fas fa-coins text-yellow-500"></i> عملات الألعاب</a>
+        <a href="skins.html" class="py-2 flex items-center gap-2 text-[#1f3c2a] hover:bg-[#f0fdf4] hover:text-green-700"><i class="fas fa-puzzle-piece text-purple-600"></i> السكنات</a>
+      </div>
+      <a href="#contact" class="py-2 flex items-center gap-2 text-[#1f3c2a] hover:bg-[#f0fdf4] hover:text-green-700"><i class="fas fa-envelope"></i> تواصل معنا</a>
+    </nav>
   </div>
 </header>
 
@@ -40,7 +70,6 @@
   <h2 class="text-3xl font-bold text-center mb-8 text-[#1f3c2a] flex items-center justify-center gap-2">
     <i class="fab fa-playstation text-purple-600"></i> ألعاب سوني فايف
   </h2>
-
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="ps5GamesContainer"></div>
 </section>
 
@@ -49,74 +78,100 @@
 </footer>
 
 <script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Desktop الأقسام
+  const sectionsBtn = document.getElementById('sectionsBtn');
+  const sectionsDropdown = document.getElementById('sectionsDropdown');
+  sectionsBtn?.addEventListener('click', e => {
+    e.stopPropagation();
+    sectionsDropdown.classList.toggle('hidden');
+    sectionsBtn.setAttribute('aria-expanded', sectionsDropdown.classList.contains('hidden') ? 'false' : 'true');
+  });
+  document.addEventListener('click', e => {
+    if(!sectionsBtn.contains(e.target) && !sectionsDropdown.contains(e.target))
+      sectionsDropdown.classList.add('hidden');
+  });
+
+  // Mobile القوائم
+  const mobileBtn = document.getElementById('mobileBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  mobileBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+  const mobileSectionsBtn = document.getElementById('mobileSectionsBtn');
+  const mobileSectionsList = document.getElementById('mobileSectionsList');
+  mobileSectionsBtn?.addEventListener('click', () => mobileSectionsList.classList.toggle('open'));
+
+  // الألعاب الكاملة
   const ps5Games = [
-    { name: 'ريماتش', info: '(فوري)', price: '٥.٥ ريال', img: 'images/ps5_31.jpg' },
-    { name: 'NBA 2K25', info: '(فوري)', price: '٧ ريال', img: 'images/ps5_3.jpg' },
-    { name: 'It Takes Two', info: '(فوري)', price: '٥ ريال', img: 'images/ps5_32.jpg' },
-    { name: 'Assassin’s Creed Shadows', info: '(فوري)', price: '١٠ ريال', img: 'images/ps5_33.jpg' },
-
-    { name: 'Death Stranding 2', info: '(فوري)', price: '١٣ ريال', img: 'images/ps5_34.jpg' },
-
-    { name: 'كراش سيارات', info: '(فوري)', price: '٤ ريال', img: 'images/ps5_12.jpg' },
-    { name: 'كراش مغامرات ٣ أجزاء', info: '(فوري)', price: '٤.٥ ريال', img: 'images/ps5_13.jpg' },
-    { name: 'Little Nightmares 2', info: '(فوري)', price: '٣ ريال', img: 'images/ps5_15.jpg' },
-
-    { name: 'لاست أف أس بارت ٢', info: '(تأخير)', price: '٧ ريال', img: 'images/ps5_30.jpg' },
-    { name: 'Black Myth Wukong', info: '(تأخير)', price: '١٢.٥ ريال', img: 'images/ps5_35.jpg' },
-    { name: 'شبح يوتيه', info: '(تأخير)', price: '١٤ ريال', img: 'images/ps5_36.jpg' },
-    { name: 'Battlefield 6', info: '(تأخير)', price: '١٤ ريال', img: 'images/ps5_37.jpg' },
-    { name: 'هولو نايت', info: '(تأخير)', price: '٥ ريال', img: 'images/ps5_7.jpg' },
-    { name: 'Astro Bot', info: '(تأخير)', price: '١١ ريال', img: 'images/ps5_38.jpg' },
-    { name: 'سنو رنج محاكي التغريز', info: '(تأخير)', price: '٧ ريال', img: 'images/ps5_14.jpg' },
-    { name: 'ذا ويتشر ٣', info: '(تأخير)', price: '٤.٥ ريال', img: 'images/ps5_16.jpg' },
-    { name: 'جراند ترزمو ٧', info: '(تأخير)', price: '٧ ريال', img: 'images/ps5_17.jpg' },
-    { name: 'هيمين فال فات', info: '(تأخير)', price: '٤ ريال', img: 'images/ps5_18.jpg' },
-    { name: 'سايلنت هيل ١', info: '(تأخير)', price: '١٠ ريال', img: 'images/ps5_39.jpg' },
-    { name: 'سايلنت هيل ٢', info: '(تأخير)', price: '١٠ ريال', img: 'images/ps5_40.jpg' },
-    { name: 'تيكن ٨', info: '(تأخير)', price: '٩.٥ ريال', img: 'images/ps5_41.jpg' },
-    { name: 'Split Fiction', info: '(تأخير)', price: '١٠.٢٢ ريال', img: 'images/ps5_42.jpg' },
-    { name: 'كراش تيم رامبل', info: '(تأخير)', price: '٥.٦ ريال', img: 'images/ps5_23.jpg' },
-    { name: 'سبايدر مان بيتر', info: '(تأخير)', price: '٥.٦ ريال', img: 'images/ps5_24.jpg' },
-    { name: 'سبايدر مان مايلز', info: '(تأخير)', price: '٥.٦ ريال', img: 'images/ps5_25.jpg' },
-    { name: 'أتشارتيد – نهاية اللص + الأرث المفقود', info: '(تأخير)', price: '٥ ريال', img: 'images/ps5_26.jpg' },
-    { name: 'ألدن رينج', info: '(تأخير)', price: '٩.٥ ريال', img: 'images/ps5_27.jpg' },
-    { name: 'سايبر بنك شامل الإضافة', info: '(تأخير)', price: '٧ ريال', img: 'images/ps5_43.jpg' }
+    { name: 'ريماتش', info: '(فوري)', price: '٥.٥ ر.ع', img: 'images/ps5_31.jpg' },
+    { name: 'NBA 2K25', info: '(فوري)', price: '٧ ر.ع', img: 'images/ps5_3.jpg' },
+    { name: 'It Takes Two', info: '(فوري)', price: '٥ ر.ع', img: 'images/ps5_32.jpg' },
+    { name: 'Assassin’s Creed Shadows', info: '(فوري)', price: '١٠ ر.ع', img: 'images/ps5_33.jpg' },
+    { name: 'Death Stranding 2', info: '(١٣ ر.ع)', price: '١٣ ر.ع', img: 'images/ps5_34.jpg' },
+    { name: 'كراش سيارات', info: '(فوري)', price: '٤ ر.ع', img: 'images/ps5_12.jpg' },
+    { name: 'كراش مغامرات ٣ أجزاء', info: '(فوري)', price: '٤.٥ ر.ع', img: 'images/ps5_13.jpg' },
+    { name: 'Little Nightmares 2', info: '(فوري)', price: '٣ ر.ع', img: 'images/ps5_15.jpg' },
+    { name: 'لاست أف أس بارت ٢', info: '(تأخير)', price: '٧ ر.ع', img: 'images/ps5_30.jpg' },
+    { name: 'Black Myth Wukong', info: '(تأخير)', price: '١٢.٥ ر.ع', img: 'images/ps5_35.jpg' },
+    { name: 'شبح يوتيه', info: '(تأخير)', price: '١٤ ر.ع', img: 'images/ps5_36.jpg' },
+    { name: 'Battlefield 6', info: '(تأخير)', price: '١٤ ر.ع', img: 'images/ps5_37.jpg' },
+    { name: 'هولو نايت', info: '(تأخير)', price: '٥ ر.ع', img: 'images/ps5_7.jpg' },
+    { name: 'Astro Bot', info: '(تأخير)', price: '١١ ر.ع', img: 'images/ps5_38.jpg' },
+    { name: 'سنو رنج محاكي التغريز', info: '(تأخير)', price: '٧ ر.ع', img: 'images/ps5_14.jpg' },
+    { name: 'ذا ويتشر ٣', info: '(تأخير)', price: '٤.٥ ر.ع', img: 'images/ps5_16.jpg' },
+    { name: 'جراند ترزمو ٧', info: '(تأخير)', price: '٧ ر.ع', img: 'images/ps5_17.jpg' },
+    { name: 'هيمين فال فات', info: '(تأخير)', price: '٤ ر.ع', img: 'images/ps5_18.jpg' },
+    { name: 'سايلنت هيل ١', info: '(تأخير)', price: '١٠ ر.ع', img: 'images/ps5_39.jpg' },
+    { name: 'سايلنت هيل ٢', info: '(تأخير)', price: '١٠ ر.ع', img: 'images/ps5_40.jpg' },
+    { name: 'تيكن ٨', info: '(تأخير)', price: '٩.٥ ر.ع', img: 'images/ps5_41.jpg' },
+    { name: 'Split Fiction', info: '(تأخير)', price: '١٠.٢٢ ر.ع', img: 'images/ps5_42.jpg' },
+    { name: 'كراش تيم رامبل', info: '(تأخير)', price: '٥.٦ ر.ع', img: 'images/ps5_23.jpg' },
+    { name: 'سبايدر مان بيتر', info: '(تأخير)', price: '٥.٦ ر.ع', img: 'images/ps5_24.jpg' },
+    { name: 'سبايدر مان مايلز', info: '(تأخير)', price: '٥.٦ ر.ع', img: 'images/ps5_25.jpg' },
+    { name: 'أتشارتيد – نهاية اللص + الأرث المفقود', info: '(تأخير)', price: '٥ ر.ع', img: 'images/ps5_26.jpg' },
+    { name: 'ألدن رينج', info: '(تأخير)', price: '٩.٥ ر.ع', img: 'images/ps5_27.jpg' },
+    { name: 'سايبر بنك شامل الإضافة', info: '(تأخير)', price: '٧ ر.ع', img: 'images/ps5_43.jpg' },
+    { name: 'بلاك أبس ٧', info: '(تأخير)', price: '٨.٥ ر.ع', img: 'images/ps5_1.jpg' },
+    { name: 'جراند ٥', info: '(تسليم فوري)', price: 'بحسابك الأساسي ٥.٥ ر.ع — بنفس الحساب ٢ ر.ع', img: 'images/ps5_2.jpg' },
+    { name: 'فيفا ٢٦', info: '(تسليم فوري)', price: '٨.٥ ر.ع', img: 'images/ps5_28.jpg' },
+    { name: 'فورزا هورايزن ٥', info: '(تسليم فوري)', price: 'بحسابك الأساسي ٧.٥ ر.ع — بنفس الحساب ٥.٥ ر.ع', img: 'images/ps5_4.jpg' },
+    { name: 'ذا لاست أف أس بارت ون', info: '(تأخير)', price: '٥ ر.ع', img: 'images/ps5_30.jpg' },
+    { name: 'سبايدر مان ٢', info: '(تأخير)', price: 'بحسابك الأساسي ١٠ ر.ع — بنفس الحساب ٦ ر.ع', img: 'images/ps5_6.jpg' },
+    { name: 'جود أف وور', info: '(فوري)', price: '٨.٥ ر.ع', img: 'images/ps5_29.jpg' },
+    { name: 'ماين كرافت', info: '(تأخير)', price: 'بحسابك الأساسي ٥.٥ ر.ع — بنفس الحساب ٣.٥ ر.ع', img: 'images/ps5_8.jpg' },
+    { name: 'رزدنت إيفل ٤', info: '(تأخير)', price: '٥ ر.ع', img: 'images/ps5_9.jpg' },
+    { name: 'فيفا ٢٥', info: '(فوري)', price: '٤ ر.ع (نفس الحساب)', img: 'images/ps5_10.jpg' },
+    { name: 'ردد ردمشن ٢', info: '(تأخير)', price: '٥ ر.ع', img: 'images/ps5_11.jpg' },
+    { name: 'بلاك أبس ٦', info: '(فوري)', price: '٨.٥ ر.ع', img: 'images/ps5_5.jpg' }
   ];
 
-  ps5Games.push(
-    { name: 'بلاك أبس ٧', info: '(تأخير)', price: '٨.٥ ريال', img: 'images/ps5_1.jpg' },
-    { name: 'جراند ٥', info: '(تسليم فوري)', price: 'بحسابك الأساسي ٥.٥ ريال — بنفس الحساب ٢ ريال', img: 'images/ps5_2.jpg' },
-    { name: 'فيفا ٢٦', info: '(تسليم فوري)', price: '٨.٥ ريال', img: 'images/ps5_28.jpg' },
-    { name: 'فورزا هورايزن ٥', info: '(تسليم فوري)', price: 'بحسابك الأساسي ٧.٥ ريال — بنفس الحساب ٥.٥ ريال', img: 'images/ps5_4.jpg' },
-    { name: 'ذا لاست أف أس بارت ون', info: '(تأخير)', price: '٥ ريال', img: 'images/ps5_30.jpg' },
-    { name: 'سبايدر مان ٢', info: '(تأخير)', price: 'بحسابك الأساسي ١٠ ريال — بنفس الحساب ٦ ريال', img: 'images/ps5_6.jpg' },
-    { name: 'جود أف وور', info: '(فوري)', price: '٨.٥ ريال', img: 'images/ps5_29.jpg' },
-    { name: 'ماين كرافت', info: '(تأخير)', price: 'بحسابك الأساسي ٥.٥ ريال — بنفس الحساب ٣.٥ ريال', img: 'images/ps5_8.jpg' },
-    { name: 'رزدنت إيفل ٤', info: '(تأخير)', price: '٥ ريال', img: 'images/ps5_9.jpg' },
-    { name: 'فيفا ٢٥', info: '(فوري)', price: '٤ ريال (نفس الحساب)', img: 'images/ps5_10.jpg' },
-    { name: 'ردد ردمشن ٢', info: '(تأخير)', price: '٥ ريال', img: 'images/ps5_11.jpg' },
+  function formatPrice(price){
+    if(price.includes('بحسابك الأساسي')){
+      const parts = price.split('—').map(p=>p.trim());
+      return parts.map(p=>{
+        if(p.includes('بحسابك الأساسي')) return 'بحسابك الأساسي: '+p.replace('بحسابك الأساسي','').trim();
+        if(p.includes('بنفس الحساب')) return 'بنفس الحساب: '+p.replace('بنفس الحساب','').trim();
+        return p;
+      }).join('<br>');
+    }
+    return price;
+  }
 
-    { name: 'بلاك أبس ٦', info: '(فوري)', price: '٨.٥ ريال', img: 'images/ps5_5.jpg' }
-  );
-
-
-  function createCards(containerId, games) {
+  function createCards(containerId, games){
     const container = document.getElementById(containerId);
     games.forEach(item => {
       const card = document.createElement('div');
       card.className = 'bg-white rounded-2xl shadow-md overflow-hidden card';
       card.innerHTML = `
-        <img src="${item.img}" alt="${item.name}" class="w-full h-48 object-cover">
+        <img src="${item.img}" alt="${item.name}" class="w-full h-48 object-cover rounded-t-2xl">
         <div class="p-4">
-          <h3 class="text-xl font-semibold text-center">${item.name} <span class="text-sm text-gray-500">${item.info}</span></h3>
-          <p class="text-green-600 font-bold mt-2 text-center">${item.price}</p>
+          <h3 class="text-xl font-semibold text-center">${item.name} <span class="text-sm text-gray-500">${item.info || ''}</span></h3>
+          <p class="text-green-600 font-bold mt-2 text-center leading-relaxed">${formatPrice(item.price)}</p>
           <div class="mt-4 flex gap-2">
-            <a href="https://wa.me/96879236441?text=مرحباً، أريد شراء ${encodeURIComponent(item.name)}" target="_blank"
-              class="flex-1 bg-green-600 text-white text-center py-2 rounded-xl">
+            <a href="https://wa.me/96879236441?text=مرحباً، أريد شراء ${encodeURIComponent(item.name)}" target="_blank" class="flex-1 bg-green-600 text-white text-center py-2 rounded-xl hover:bg-green-700 transition">
               <i class="fab fa-whatsapp"></i> واتساب
             </a>
-            <a href="https://www.instagram.com/r.zoro_store/" target="_blank"
-              class="flex-1 bg-pink-500 text-white text-center py-2 rounded-xl">
+            <a href="https://www.instagram.com/r.zoro_store/" target="_blank" class="flex-1 bg-pink-500 text-white text-center py-2 rounded-xl hover:bg-pink-600 transition">
               <i class="fab fa-instagram"></i> إنستجرام
             </a>
           </div>
@@ -127,6 +182,7 @@
   }
 
   createCards('ps5GamesContainer', ps5Games);
+});
 </script>
 
 </body>
