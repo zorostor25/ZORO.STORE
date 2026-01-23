@@ -3,13 +3,13 @@
 <head>
     <link rel="icon" type="image/png" href="ZORO.STORE.jpeg"> 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZORO STORE - اشتراكات رقمية</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
-        body { background-color: #f9fafb; font-family: 'Cairo', sans-serif; overflow-x: hidden; }
+        body { background-color: #f9fafb; font-family: 'Cairo', sans-serif; }
         header { background-color: #1f3c2a; }
         .card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
         .card:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
@@ -26,12 +26,12 @@
     <h1 class="text-2xl font-bold text-white">ZORO.STORE</h1>
     <div class="flex items-center gap-3">
       <nav id="mainNav" class="hidden md:flex items-center gap-6 text-white font-bold">
-        <a href="index.html" class="hover:text-yellow-400">الرئيسية</a>
+        <a href="index.html" class="hover:text-yellow-400 font-bold">الرئيسية</a>
         <div class="relative group">
           <button id="sectionsBtn" class="flex items-center gap-2 hover:text-yellow-400 focus:outline-none">
             الأقسام <i class="fas fa-chevron-down text-sm"></i>
           </button>
-          <ul id="sectionsDropdown" class="absolute right-0 mt-2 w-64 bg-white rounded-md shadow-2xl text-right py-2 hidden text-gray-800 z-dropdown">
+          <ul id="sectionsDropdown" class="absolute right-0 mt-2 w-64 bg-white rounded-md shadow-2xl text-right py-2 hidden text-gray-800 z-dropdown font-bold">
             <li><a href="AP.html" class="block px-4 py-2 bg-green-100 font-bold flex items-center gap-2"><i class="fas fa-tags text-green-600"></i> اشتراكات رقمية</a></li>
             <li><a href="PS4.html" class="block px-4 py-2 hover:bg-green-50 border-b flex items-center gap-2"><i class="fab fa-playstation text-blue-700"></i> ألعاب سوني فور</a></li>
             <li><a href="PS5.html" class="block px-4 py-2 hover:bg-green-50 border-b flex items-center gap-2"><i class="fab fa-playstation text-purple-600"></i> ألعاب سوني فايف</a></li>
@@ -50,9 +50,9 @@
   <div id="mobileMenu" class="md:hidden hidden bg-white border-t">
     <nav class="flex flex-col p-4 text-right font-bold">
       <a href="index.html" class="py-3 border-b text-gray-700">الرئيسية</a>
-      <button id="mobileSectionsBtn" class="py-3 border-b text-gray-700 flex justify-between items-center">الأقسام <i class="fas fa-chevron-down"></i></button>
+      <button id="mobileSectionsBtn" class="py-3 border-b text-gray-700 flex justify-between items-center text-green-700">الأقسام <i class="fas fa-chevron-down"></i></button>
       <div id="mobileSectionsList" class="bg-gray-50 pr-4">
-        <a href="AP.html" class="py-2 block border-b text-sm text-green-700">اشتراكات رقمية</a>
+        <a href="AP.html" class="py-2 block border-b text-sm text-green-700 font-bold">اشتراكات رقمية</a>
         <a href="PS4.html" class="py-2 block border-b text-sm">ألعاب سوني فور</a>
         <a href="PS5.html" class="py-2 block border-b text-sm">ألعاب سوني فايف</a>
         <a href="Xbox.html" class="py-2 block border-b text-sm">ألعاب إكس بوكس</a>
@@ -60,7 +60,7 @@
         <a href="Currency Packs.html" class="py-2 block border-b text-sm">عملات الألعاب</a>
         <a href="skins.html" class="py-2 block text-sm">السكنات</a>
       </div>
-      <a href="https://wa.me/96879236441" class="py-3 text-gray-700">تواصل معنا</a>
+      <a href="https://wa.me/96879236441" class="py-3 text-gray-700 border-t">تواصل معنا</a>
     </nav>
   </div>
 </header>
@@ -70,98 +70,75 @@
     <i class="fas fa-tags text-green-600"></i> اشتراكات رقمية
   </h2>
 
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-
-    <div class="bg-white rounded-2xl shadow-md overflow-hidden card border border-gray-100">
-      <img src="images/crunchyroll.jpg" class="w-full h-48 object-cover">
-      <div class="p-4">
-        <h3 class="text-xl font-bold text-center mb-3">كرانش رول</h3>
-        <div class="text-green-600 font-bold text-center bg-green-50 py-2 rounded-lg border border-green-100 text-sm space-y-1">
-          <p>شهر: ١ ر.ع</p>
-          <p>سنة: ٤ ر.ع</p>
-        </div>
-        <div class="mt-4 flex gap-2">
-          <a href="https://wa.me/96879236441?text=طلب اشتراك كرانش رول" target="_blank" class="flex-1 bg-green-600 text-white text-center py-2 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-green-700">
-            <i class="fab fa-whatsapp"></i> شراء
-          </a>
-          <a href="https://www.instagram.com/r.zoro_store/" target="_blank" class="w-12 bg-gradient-to-tr from-yellow-500 via-pink-500 to-purple-500 text-white rounded-xl flex items-center justify-center hover:opacity-90 transition">
-            <i class="fab fa-instagram text-xl"></i>
-          </a>
-        </div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="subsContainer">
       </div>
-    </div>
-
-    <div class="bg-white rounded-2xl shadow-md overflow-hidden card border border-gray-100">
-      <img src="images/app_snapplus.webp" class="w-full h-48 object-cover">
-      <div class="p-4">
-        <h3 class="text-xl font-bold text-center mb-3">سناب بلس</h3>
-        <div class="text-green-600 font-bold text-center bg-green-50 py-2 rounded-lg border border-green-100 text-sm space-y-1">
-          <p>٣ شهور: ٤ ر.ع | ٦ شهور: ٧ ر.ع</p>
-          <p>سنة كاملة: ١٣ ر.ع</p>
-        </div>
-        <div class="mt-4 flex gap-2">
-          <a href="https://wa.me/96879236441?text=طلب اشتراك سناب بلس" target="_blank" class="flex-1 bg-green-600 text-white text-center py-2 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-green-700">
-            <i class="fab fa-whatsapp"></i> شراء
-          </a>
-          <a href="https://www.instagram.com/r.zoro_store/" target="_blank" class="w-12 bg-gradient-to-tr from-yellow-500 via-pink-500 to-purple-500 text-white rounded-xl flex items-center justify-center hover:opacity-90 transition">
-            <i class="fab fa-instagram text-xl"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="bg-white rounded-2xl shadow-md overflow-hidden card border border-gray-100">
-      <img src="images/netflix.png" class="w-full h-48 object-cover">
-      <div class="p-4">
-        <h3 class="text-xl font-bold text-center mb-3">نتفلكس</h3>
-        <div class="text-green-600 font-bold text-center bg-green-50 py-2 rounded-lg border border-green-100 text-xs space-y-1">
-          <p>شهر: ٢.٢ ر.ع | ٣ أشهر: ٣.٦ ر.ع</p>
-          <p>٦ أشهر: ٥.٤ ر.ع | سنة: ٨.٥ ر.ع</p>
-        </div>
-        <div class="mt-4 flex gap-2">
-          <a href="https://wa.me/96879236441?text=طلب اشتراك نتفلكس" target="_blank" class="flex-1 bg-green-600 text-white text-center py-2 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-green-700">
-            <i class="fab fa-whatsapp"></i> شراء
-          </a>
-          <a href="https://www.instagram.com/r.zoro_store/" target="_blank" class="w-12 bg-gradient-to-tr from-yellow-500 via-pink-500 to-purple-500 text-white rounded-xl flex items-center justify-center hover:opacity-90 transition">
-            <i class="fab fa-instagram text-xl"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="bg-white rounded-2xl shadow-md overflow-hidden card border border-gray-100">
-      <img src="images/shahid.webp" class="w-full h-48 object-cover">
-      <div class="p-4">
-        <h3 class="text-xl font-bold text-center mb-3 text-sm md:text-base">شاهد (ملف واحد)</h3>
-        <div class="text-green-600 font-bold text-center bg-green-50 py-2 rounded-lg border border-green-100 text-sm space-y-1">
-          <p>شهر: ٢ ر.ع | ٣ أشهر: ٢.٥ ر.ع</p>
-          <p>سنة كاملة: ٦ ر.ع</p>
-        </div>
-        <div class="mt-4 flex gap-2">
-          <a href="https://wa.me/96879236441?text=طلب شاهد ملف" target="_blank" class="flex-1 bg-green-600 text-white text-center py-2 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-green-700">
-            <i class="fab fa-whatsapp"></i> شراء
-          </a>
-          <a href="https://www.instagram.com/r.zoro_store/" target="_blank" class="w-12 bg-gradient-to-tr from-yellow-500 via-pink-500 to-purple-500 text-white rounded-xl flex items-center justify-center hover:opacity-90 transition">
-            <i class="fab fa-instagram text-xl"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-
-  </div>
 </section>
 
-<footer class="bg-[#1f3c2a] text-white text-center py-6 mt-10 text-sm">
-  <p>جميع الحقوق محفوظة &copy; 2025 ZORO STORE</p>
+<footer class="bg-[#1f3c2a] text-white text-center py-6 mt-10">
+  <p class="text-sm font-bold">جميع الحقوق محفوظة &copy; 2025 ZORO STORE</p>
 </footer>
 
 <script>
 document.addEventListener('DOMContentLoaded', function(){
-    // القوائم المنسدلة
-    document.getElementById('sectionsBtn').onclick = (e) => { e.stopPropagation(); document.getElementById('sectionsDropdown').classList.toggle('hidden'); };
-    document.getElementById('mobileBtn').onclick = () => document.getElementById('mobileMenu').classList.toggle('hidden');
-    document.getElementById('mobileSectionsBtn').onclick = () => document.getElementById('mobileSectionsList').classList.toggle('open');
-    document.addEventListener('click', () => { document.getElementById('sectionsDropdown').classList.add('hidden'); });
+    
+    // مصفوفة الاشتراكات - نفس نظام صفحة البلايستيشن
+    const subscriptions = [
+        { name: 'كرانش رول', price: 'شهر: ١ ر.ع | سنة: ٤ ر.ع', img: 'images/crunchyroll.jpg' },
+        { name: 'سناب بلس', price: '٣ شهور: ٤ ر.ع | سنة: ١٣ ر.ع', img: 'images/app_snapplus.webp' },
+        { name: 'نتفلكس', price: 'شهر: ٢.٢ ر.ع | سنة: ٨.٥ ر.ع', img: 'images/netflix.png' },
+        { name: 'شاهد VIP (ملف واحد)', price: 'شهر: ٢ ر.ع | سنة: ٦ ر.ع', img: 'images/shahid.webp' },
+        { name: 'شاهد (حساب كامل)', price: 'شهر: ٣.٥ ر.ع | سنة: ١٥ ر.ع', img: 'images/shahid.webp' }
+    ];
+
+    function displaySubscriptions() {
+        const container = document.getElementById('subsContainer');
+        container.innerHTML = '';
+        
+        subscriptions.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'bg-white rounded-2xl shadow-md overflow-hidden card border border-gray-100';
+            card.innerHTML = `
+                <div class="relative">
+                    <img src="${item.img}" class="w-full h-48 object-cover">
+                </div>
+                <div class="p-4">
+                    <h3 class="text-xl font-bold text-center mb-3">${item.name}</h3>
+                    <div class="text-green-600 font-bold text-center bg-green-50 py-2 rounded-lg border border-green-100 text-sm">
+                        <p>${item.price}</p>
+                    </div>
+                    <div class="mt-4 flex gap-2">
+                        <a href="https://api.whatsapp.com/send?phone=96879236441&text=أريد طلب اشتراك: ${encodeURIComponent(item.name)}" target="_blank" class="flex-1 bg-green-600 text-white text-center py-2 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-green-700 transition">
+                            <i class="fab fa-whatsapp"></i> شراء
+                        </a>
+                        <a href="https://www.instagram.com/r.zoro_store/" target="_blank" class="w-12 bg-gradient-to-tr from-yellow-500 via-pink-500 to-purple-500 text-white rounded-xl flex items-center justify-center hover:opacity-90 transition">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                    </div>
+                </div>`;
+            container.appendChild(card);
+        });
+    }
+
+    // تشغيل القوائم المنسدلة
+    document.getElementById('sectionsBtn').onclick = (e) => { 
+        e.stopPropagation(); 
+        document.getElementById('sectionsDropdown').classList.toggle('hidden'); 
+    };
+    
+    document.getElementById('mobileBtn').onclick = () => {
+        document.getElementById('mobileMenu').classList.toggle('hidden');
+    };
+    
+    document.getElementById('mobileSectionsBtn').onclick = () => {
+        document.getElementById('mobileSectionsList').classList.toggle('open');
+    };
+    
+    document.addEventListener('click', () => {
+        document.getElementById('sectionsDropdown').classList.add('hidden');
+    });
+
+    // تشغيل الدالة لعرض البيانات عند تحميل الصفحة
+    displaySubscriptions();
 });
 </script>
 </body>
