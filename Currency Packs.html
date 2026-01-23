@@ -1,292 +1,161 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ZORO STORE - عملات الألعاب</title>
-  <link rel="icon" type="image/png" href="ZORO.STORE.jpeg">
-
-  <!-- خطوط وأيقونات -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <style>
-    body {
-      background-color: #f9fafb;
-      font-family: 'Cairo', sans-serif;
-      scroll-behavior: smooth;
-    }
-
-    header {
-      background-color: #1f3c2a;
-    }
-
-    /* البطاقات */
-    .card {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      position: relative;
-    }
-
-    .card img {
-      transition: transform 0.3s ease;
-    }
-
-    .card:hover img {
-      transform: scale(1.05);
-    }
-
-    .card:hover {
-      transform: translateY(-5px) scale(1.02);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    }
-
-    /* قائمة الهاتف */
-    #mobileSectionsList {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.5s ease, padding 0.5s ease;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      padding-right: 0;
-    }
-
-    #mobileSectionsList.open {
-      max-height: 1000px;
-      padding-right: 1rem;
-    }
-  </style>
+    <link rel="icon" type="image/png" href="ZORO.STORE.jpeg"> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>ZORO STORE - عملات الألعاب</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+        body { background-color: #f9fafb; font-family: 'Cairo', sans-serif; overflow-x: hidden; }
+        header { background-color: #1f3c2a; }
+        .card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .card:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        
+        #mobileSectionsList { max-height: 0; overflow: hidden; transition: all 0.5s ease; }
+        #mobileSectionsList.open { max-height: 800px; padding: 10px 0; }
+        .z-dropdown { z-index: 9999 !important; }
+        
+        /* تحسين مظهر قائمة الأسعار داخل البطاقة */
+        .price-list { scrollbar-width: thin; max-height: 120px; overflow-y: auto; }
+    </style>
 </head>
 <body>
 
-  <!-- شريط العنوان -->
-  <header class="shadow-md sticky top-0 z-50">
-    <div class="container mx-auto flex items-center justify-between p-4">
-      <h1 class="text-2xl font-bold text-white">ZORO.STORE</h1>
-
-      <div class="flex items-center gap-3">
-        <!-- قائمة سطح المكتب -->
-        <nav id="mainNav" class="hidden md:flex items-center gap-6 text-white">
-          <a href="index.html" class="flex items-center gap-2 hover:text-yellow-400">
-            <i class="fas fa-home"></i> الرئيسية
-          </a>
-
-          <!-- قائمة الأقسام المنسدلة -->
-          <div class="relative">
-            <button id="sectionsBtn" class="flex items-center gap-2 hover:text-yellow-400 focus:outline-none" aria-expanded="false">
-              <i class="fas fa-th-large"></i>
-              <span>الأقسام</span>
-              <i class="fas fa-chevron-down text-sm"></i>
-            </button>
-
-            <ul id="sectionsDropdown" class="absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg text-right py-2 hidden">
-              <li><a href="AP.html" class="block px-4 py-2 hover:bg-[#f0fdf4] hover:text-green-700 flex gap-2"><i class="fas fa-tags text-green-600"></i> اشتراكات رقمية</a></li>
-              <li><a href="PS4.html" class="block px-4 py-2 hover:bg-[#f0fdf4] hover:text-green-700 flex gap-2"><i class="fab fa-playstation text-blue-700"></i> ألعاب سوني فور</a></li>
-              <li><a href="PS5.html" class="block px-4 py-2 hover:bg-[#f0fdf4] hover:text-green-700 flex gap-2"><i class="fab fa-playstation text-purple-600"></i> ألعاب سوني فايف</a></li>
-              <li><a href="Xbox.html" class="block px-4 py-2 hover:bg-[#f0fdf4] hover:text-green-700 flex gap-2"><i class="fab fa-xbox text-green-700"></i> ألعاب إكس بوكس</a></li>
-              <li><a href="Currency Packs.html" class="block px-4 py-2 hover:bg-[#f0fdf4] hover:text-green-700 flex gap-2"><i class="fas fa-coins text-yellow-500"></i> عملات الألعاب</a></li>
-              <li><a href="skins.html" class="block px-4 py-2 hover:bg-[#f0fdf4] hover:text-green-700 flex gap-2"><i class="fas fa-puzzle-piece text-purple-600"></i> السكنات</a></li>
-            </ul>
-          </div>
-
-          <a href="#contact" class="flex items-center gap-2 hover:text-yellow-400">
-            <i class="fas fa-envelope"></i> تواصل معنا
-          </a>
-        </nav>
-
-        <!-- زر القائمة للهاتف -->
-        <button id="mobileBtn" class="md:hidden p-2 rounded-md focus:outline-none" aria-label="فتح القائمة">
-          <i class="fas fa-bars text-2xl text-white"></i>
-        </button>
-      </div>
-    </div>
-
-    <!-- قائمة الهاتف -->
-    <div id="mobileMenu" class="md:hidden hidden border-t bg-white">
-      <nav class="flex flex-col p-4 gap-2 text-right">
-        <a href="index.html" class="py-2 flex items-center gap-2 text-[#1f3c2a] hover:bg-[#f0fdf4] hover:text-green-700">
-          <i class="fas fa-home"></i> الرئيسية
-        </a>
-
-        <!-- الأقسام للهاتف -->
-        <button id="mobileSectionsBtn" class="py-2 flex items-center justify-between w-full text-[#1f3c2a] hover:text-green-700">
-          <span class="flex items-center gap-2"><i class="fas fa-th-large"></i> الأقسام</span>
-          <i class="fas fa-chevron-down"></i>
-        </button>
-
-        <div id="mobileSectionsList" class="flex-col pr-4">
-          <a href="AP.html" class="py-2 flex items-center gap-2 text-[#1f3c2a] hover:bg-[#f0fdf4] hover:text-green-700"><i class="fas fa-tags text-green-600"></i> اشتراكات رقمية</a>
-          <a href="PS4.html" class="py-2 flex items-center gap-2 text-[#1f3c2a] hover:bg-[#f0fdf4] hover:text-green-700"><i class="fab fa-playstation text-blue-700"></i> ألعاب سوني فور</a>
-          <a href="PS5.html" class="py-2 flex items-center gap-2 text-[#1f3c2a] hover:bg-[#f0fdf4] hover:text-green-700"><i class="fab fa-playstation text-purple-600"></i> ألعاب سوني فايف</a>
-          <a href="Xbox.html" class="py-2 flex items-center gap-2 text-[#1f3c2a] hover:bg-[#f0fdf4] hover:text-green-700"><i class="fab fa-xbox text-green-700"></i> ألعاب إكس بوكس</a>
-          <a href="Currency Packs.html" class="py-2 flex items-center gap-2 text-[#1f3c2a] hover:bg-[#f0fdf4] hover:text-green-700"><i class="fas fa-coins text-yellow-500"></i> عملات الألعاب</a>
-          <a href="skins.html" class="py-2 flex items-center gap-2 text-[#1f3c2a] hover:bg-[#f0fdf4] hover:text-green-700"><i class="fas fa-puzzle-piece text-purple-600"></i> السكنات</a>
+<header class="bg-[#1f3c2a] shadow-md sticky top-0 z-[100]">
+  <div class="container mx-auto flex items-center justify-between p-4">
+    <h1 class="text-2xl font-bold text-white">ZORO.STORE</h1>
+    <div class="flex items-center gap-3">
+      <nav id="mainNav" class="hidden md:flex items-center gap-6 text-white font-bold">
+        <a href="index.html" class="hover:text-yellow-400 font-bold">الرئيسية</a>
+        <div class="relative group">
+          <button id="sectionsBtn" class="flex items-center gap-2 hover:text-yellow-400 focus:outline-none">
+            الأقسام <i class="fas fa-chevron-down text-sm"></i>
+          </button>
+          <ul id="sectionsDropdown" class="absolute right-0 mt-2 w-64 bg-white rounded-md shadow-2xl text-right py-2 hidden text-gray-800 z-dropdown font-bold">
+            <li><a href="AP.html" class="block px-4 py-2 hover:bg-green-50 border-b flex items-center gap-2"><i class="fas fa-tags text-green-600"></i> اشتراكات رقمية</a></li>
+            <li><a href="PS4.html" class="block px-4 py-2 hover:bg-green-50 border-b flex items-center gap-2"><i class="fab fa-playstation text-blue-700"></i> ألعاب سوني فور</a></li>
+            <li><a href="PS5.html" class="block px-4 py-2 hover:bg-green-50 border-b flex items-center gap-2"><i class="fab fa-playstation text-purple-600"></i> ألعاب سوني فايف</a></li>
+            <li><a href="Xbox.html" class="block px-4 py-2 hover:bg-green-50 border-b flex items-center gap-2"><i class="fab fa-xbox text-green-700"></i> ألعاب إكس بوكس</a></li>
+            <li><a href="PC.html" class="block px-4 py-2 hover:bg-green-50 border-b flex items-center gap-2"><i class="fas fa-desktop text-blue-500"></i> ألعاب بي سي (PC)</a></li>
+            <li><a href="Currency Packs.html" class="block px-4 py-2 bg-green-100 font-bold flex items-center gap-2"><i class="fas fa-coins text-yellow-500"></i> عملات الألعاب</a></li>
+            <li><a href="skins.html" class="block px-4 py-2 hover:bg-green-50 flex items-center gap-2"><i class="fas fa-puzzle-piece text-purple-600"></i> السكنات</a></li>
+          </ul>
         </div>
-
-        <a href="#contact" class="py-2 flex items-center gap-2 text-[#1f3c2a] hover:bg-[#f0fdf4] hover:text-green-700">
-          <i class="fas fa-envelope"></i> تواصل معنا
-        </a>
+        <a href="https://wa.me/96879236441" class="hover:text-yellow-400">تواصل معنا</a>
       </nav>
+      <button id="mobileBtn" class="md:hidden p-2 text-white"><i class="fas fa-bars text-2xl"></i></button>
     </div>
-  </header>
+  </div>
+  
+  <div id="mobileMenu" class="md:hidden hidden bg-white border-t">
+    <nav class="flex flex-col p-4 text-right font-bold">
+      <a href="index.html" class="py-3 border-b text-gray-700">الرئيسية</a>
+      <button id="mobileSectionsBtn" class="py-3 border-b text-gray-700 flex justify-between items-center text-green-700">الأقسام <i class="fas fa-chevron-down"></i></button>
+      <div id="mobileSectionsList" class="bg-gray-50 pr-4 font-bold">
+        <a href="AP.html" class="py-2 block border-b text-sm">اشتراكات رقمية</a>
+        <a href="PS4.html" class="py-2 block border-b text-sm">ألعاب سوني فور</a>
+        <a href="PS5.html" class="py-2 block border-b text-sm">ألعاب سوني فايف</a>
+        <a href="Xbox.html" class="py-2 block border-b text-sm">ألعاب إكس بوكس</a>
+        <a href="PC.html" class="py-2 block border-b text-sm">ألعاب بي سي (PC)</a>
+        <a href="Currency Packs.html" class="py-2 block border-b text-sm text-green-700">عملات الألعاب</a>
+        <a href="skins.html" class="py-2 block text-sm">السكنات</a>
+      </div>
+      <a href="https://wa.me/96879236441" class="py-3 text-gray-700 border-t">تواصل معنا</a>
+    </nav>
+  </div>
+</header>
 
-  <!-- قسم العملات -->
-  <section class="container mx-auto py-12 px-4" id="currencies">
-    <h2 class="text-3xl font-bold text-center mb-8 text-[#1f3c2a] flex items-center justify-center gap-2">
-      <i class="fas fa-coins text-yellow-500"></i> عملات الألعاب
-    </h2>
+<section class="container mx-auto py-12 px-4">
+  <h2 class="text-3xl font-bold text-center mb-10 text-[#1f3c2a] flex items-center justify-center gap-3">
+    <i class="fas fa-coins text-yellow-500"></i> عملات الألعاب
+  </h2>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="currenciesContainer">
-      <!-- البطاقات ستظهر هنا -->
-    </div>
-  </section>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="currencyContainer">
+      </div>
+</section>
 
-  <div style="width:300px; height: 263px; background-color:transparent;"></div>
+<footer class="bg-[#1f3c2a] text-white text-center py-6 mt-10">
+  <p class="text-sm font-bold">جميع الحقوق محفوظة &copy; 2025 ZORO STORE</p>
+</footer>
 
-  <footer class="bg-[#1f3c2a] text-white text-center py-4">
-    <p>جميع الحقوق محفوظة &copy; 2025 ZORO STORE</p>
-  </footer>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const sectionsBtn = document.getElementById('sectionsBtn');
-      const sectionsDropdown = document.getElementById('sectionsDropdown');
-      const mobileBtn = document.getElementById('mobileBtn');
-      const mobileMenu = document.getElementById('mobileMenu');
-      const mobileSectionsBtn = document.getElementById('mobileSectionsBtn');
-      const mobileSectionsList = document.getElementById('mobileSectionsList');
-
-      // سطح المكتب
-      sectionsBtn.addEventListener('click', e => {
-        e.stopPropagation();
-        sectionsDropdown.classList.toggle('hidden');
-        sectionsBtn.querySelector('.fa-chevron-down').classList.toggle('rotate-180');
-      });
-      document.addEventListener('click', e => {
-        if (!sectionsBtn.contains(e.target) && !sectionsDropdown.contains(e.target)) {
-          sectionsDropdown.classList.add('hidden');
-        }
-      });
-
-      // الهاتف
-      mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-      mobileSectionsBtn.addEventListener('click', () => mobileSectionsList.classList.toggle('open'));
-
-      // البطاقات
-      const currencies = [
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+    
+    const currencies = [
         {
-          name: 'فيبوكس',
+          name: 'فيبوكس فورتنايت',
           img: 'images/currency1.jpg',
-          prices: [
-            { amount: '1000', price: '٣.٥ ريال' },
-            { amount: '2800', price: '٧.٥ ريال' },
-            { amount: '5000', price: '١٢ ريال' },
-            { amount: '13500', price: '٢٦ ريال' }
-          ]
+          prices: ['1000 → ٣.٥ ر.ع', '2800 → ٧.٥ ر.ع', '5000 → ١٢ ر.ع', '13500 → ٢٦ ر.ع']
         },
         {
           name: 'كريدت روكت ليق',
           img: 'images/currency2.jpg',
-          prices: [
-            { amount: '1100', price: '٣.٥ ريال' },
-            { amount: '3000', price: '٧.٥ ريال' },
-            { amount: '6500', price: '١٥.٣٩ ريال' }
-          ]
+          prices: ['1100 → ٣.٥ ر.ع', '3000 → ٧.٥ ر.ع', '6500 → ١٥.٤ ر.ع']
         },
         {
-          name: 'فلوس جراند',
+          name: 'فلوس جراند (GTA V)',
           img: 'images/ps5_2.jpg', 
-          prices: [
-            { amount: '1.5 مليون', price: 'نص ريال' },
-            { amount: '3 مليون', price: '1 ريال' },
-            { amount: '4.5 مليون', price: '١.٥ ريال' },
-            { amount: '6 مليون', price: '2 ريال' },
-            { amount: '7.5 مليون', price: '٢.٥ ريال' },
-            { amount: '9 مليون', price: '3 ريال' },
-            { amount: '10.5 مليون', price: '٣.٥ ريال' }
-          ],
-          new: true
+          prices: ['1.5 مليون → ٠.٥ ر.ع', '3 مليون → ١ ر.ع', '6 مليون → ٢ ر.ع', '10.5 مليون → ٣.٥ ر.ع'],
+          isNew: true
         },
         {
-          name: 'كوينز فيفا',
+          name: 'كوينز فيفا (FC)',
           img: 'images/currency3.png',
-          prices: [
-            { amount: '50000', price: '٢ ريال' },
-            { amount: '100000', price: '٤ ريال' },
-            { amount: '200000', price: '٦ ريال' },
-            { amount: '500000', price: '١١ ريال' },
-            { amount: '1000000', price: '٢١ ريال' }
-          ]
-        },
-        {
-          name: 'توكنز روكت ليق',
-          img: 'images/currency4.webp',
-          prices: [
-            { amount: '1200', price: '٤ ريال' },
-            { amount: '2500', price: '٧ ريال' }
-          ]
+          prices: ['100k → ٤ ر.ع', '200k → ٦ ر.ع', '500k → ١١ ر.ع', '1M → ٢١ ر.ع']
         },
         {
           name: 'جواهر فري فاير',
           img: 'images/freefire.jpg',
-          prices: [
-            { amount: '110 💎', price: '0.450 OMR' },
-            { amount: '210 💎', price: '0.850 OMR' },
-            { amount: '320 💎', price: '1.250 OMR' },
-            { amount: '580 💎', price: '1.950 OMR' },
-            { amount: '1188 💎', price: '3.750 OMR' },
-            { amount: '1508 💎', price: '4.900 OMR' },
-            { amount: '2420 💎', price: '7.400 OMR' },
-            { amount: '3000 💎', price: '9.050 OMR' },
-            { amount: '5000 💎', price: '15.000 OMR' },
-            { amount: '10000 💎', price: '30.000 OMR' }
-          ]
+          prices: ['320 💎 → ١.٢٥٠ ر.ع', '580 💎 → ١.٩٥٠ ر.ع', '1188 💎 → ٣.٧٥٠ ر.ع', '2420 💎 → ٧.٤٠٠ ر.ع']
         }
-      ];
+    ];
 
-      function createCards(containerId, items) {
-        const container = document.getElementById(containerId);
-        container.innerHTML = ''; // تنظيف المحتوى قبل الإضافة
-        items.forEach(item => {
-          const card = document.createElement('div');
-          card.className = 'bg-white rounded-2xl shadow-md overflow-hidden card relative';
-          
-          let pricesHtml = '';
-          item.prices.forEach(p => {
-            pricesHtml += `<p class="text-green-600 font-bold text-center mt-1">${p.amount} → ${p.price}</p>`;
-          });
+    function displayCurrencies() {
+        const container = document.getElementById('currencyContainer');
+        container.innerHTML = '';
+        
+        currencies.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'bg-white rounded-2xl shadow-md overflow-hidden card border border-gray-100 relative';
+            
+            let priceRows = item.prices.map(p => `<p class="border-b border-green-100 last:border-0 py-1">${p}</p>`).join('');
+            let badge = item.isNew ? `<span class="absolute top-3 left-3 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10 shadow-sm">جديد</span>` : '';
 
-          // تاج جديد إذا موجود
-          let newBadge = '';
-          if(item.new) {
-            newBadge = `<span class="absolute top-3 left-3 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">جديد</span>`;
-          }
-
-          card.innerHTML = `
-            ${newBadge}
-            <img src="${item.img}" alt="${item.name}" loading="lazy" class="w-full h-48 object-cover">
-            <div class="p-4">
-              <h3 class="text-xl font-semibold text-center mb-2">${item.name}</h3>
-              ${pricesHtml}
-              <div class="mt-4 flex gap-2">
-                <a href="https://wa.me/96879236441?text=مرحباً، أريد شراء ${item.name}" target="_blank"
-                   class="flex-1 bg-green-600 text-white text-center py-2 rounded-xl hover:bg-green-700 transition">
-                  <i class="fab fa-whatsapp"></i> واتساب
-                </a>
-                <a href="https://www.instagram.com/r.zoro_store/" target="_blank"
-                   class="flex-1 bg-pink-500 text-white text-center py-2 rounded-xl hover:bg-pink-600 transition">
-                  <i class="fab fa-instagram"></i> إنستجرام
-                </a>
-              </div>
-            </div>
-          `;
-          container.appendChild(card);
+            card.innerHTML = `
+                ${badge}
+                <img src="${item.img}" class="w-full h-44 object-cover">
+                <div class="p-4 text-center">
+                    <h3 class="text-xl font-bold mb-3">${item.name}</h3>
+                    <div class="bg-green-50 rounded-xl p-2 text-green-700 font-bold text-sm price-list border border-green-100">
+                        ${priceRows}
+                    </div>
+                    <div class="mt-4 flex gap-2">
+                        <a href="https://api.whatsapp.com/send?phone=96879236441&text=أريد شراء: ${encodeURIComponent(item.name)}" target="_blank" class="flex-1 bg-green-600 text-white py-2 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-green-700 transition">
+                            <i class="fab fa-whatsapp"></i> شراء
+                        </a>
+                        <a href="https://www.instagram.com/r.zoro_store/" target="_blank" class="w-12 bg-gradient-to-tr from-yellow-500 via-pink-500 to-purple-500 text-white rounded-xl flex items-center justify-center hover:opacity-90 transition">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                    </div>
+                </div>`;
+            container.appendChild(card);
         });
-      }
+    }
 
-      createCards('currenciesContainer', currencies);
-    });
-  </script>
+    // تشغيل القوائم
+    document.getElementById('sectionsBtn').onclick = (e) => { 
+        e.stopPropagation(); 
+        document.getElementById('sectionsDropdown').classList.toggle('hidden'); 
+    };
+    document.getElementById('mobileBtn').onclick = () => document.getElementById('mobileMenu').classList.toggle('hidden');
+    document.getElementById('mobileSectionsBtn').onclick = () => document.getElementById('mobileSectionsList').classList.toggle('open');
+    document.addEventListener('click', () => document.getElementById('sectionsDropdown').classList.add('hidden'));
 
+    displayCurrencies();
+});
+</script>
 </body>
 </html>
