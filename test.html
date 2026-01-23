@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <link rel="icon" type="image/png" href="ZORO.STORE.jpeg">
+  <link rel="icon" type="image/png" href="ZORO.STORE.rm.jpeg">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>ZORO STORE - ليالي رمضان</title>
@@ -10,50 +10,68 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap');
     
-    body { font-family: 'Cairo', sans-serif; background-color: #000814; color: #e2e8f0; scroll-behavior: smooth; }
+    body { font-family: 'Cairo', sans-serif; background-color: #000814; color: #e2e8f0; scroll-behavior: smooth; overflow-x: hidden; }
     
-    .bg-vibrant-blue { background: radial-gradient(circle at center, #002147 0%, #000814 100%); }
-    .gold-glow { color: #ffd700; text-shadow: 0 0 20px rgba(255, 215, 0, 0.6); }
-    .blue-card { background: rgba(0, 31, 63, 0.5); border: 1px solid rgba(0, 119, 255, 0.2); backdrop-filter: blur(12px); transition: all 0.3s ease; }
-    .blue-card:hover { border-color: #ffd700; transform: translateY(-5px); }
+    .bg-vibrant-blue { background: radial-gradient(circle at center, #001d3d 0%, #000814 100%); }
+    .gold-glow { color: #ffd700; text-shadow: 0 0 15px rgba(255, 215, 0, 0.5); }
     
-    /* حركة أرجوحة الفوانيس */
+    /* بطاقات الأقسام والعروض */
+    .blue-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(0, 119, 255, 0.1); backdrop-filter: blur(12px); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+    .blue-card:hover { border-color: #ffd700; transform: translateY(-8px); background: rgba(255, 255, 255, 0.05); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+    
+    /* حركة الفوانيس */
     @keyframes lanternSwing {
       0% { transform: rotate(3deg); }
       100% { transform: rotate(-3deg); }
     }
-    .lantern-placeholder { 
-      transform-origin: top center; 
-      animation: lanternSwing 3s infinite alternate ease-in-out; 
+    .lantern-placeholder { transform-origin: top center; animation: lanternSwing 3s infinite alternate ease-in-out; }
+
+    /* النجوم الخلفية */
+    .stars { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+    .star { position: absolute; background: white; border-radius: 50%; opacity: 0.3; animation: twinkle var(--duration) infinite; }
+    @keyframes twinkle { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+
+    /* تحسين القائمة المنسدلة (الأقسام) */
+    #sectionsDropdown {
+      visibility: hidden;
+      opacity: 0;
+      transform: translateY(15px);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      pointer-events: none;
+    }
+    #sectionsDropdown.show {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
     }
 
-    @keyframes marquee {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(50%); }
-    }
-    .animate-marquee { display: flex; width: max-content; animation: marquee 30s linear infinite; }
-
-    #mobileSectionsList { max-height: 0; overflow: hidden; transition: all 0.5s ease; }
-    #mobileSectionsList.open { max-height: 1200px; }
+    /* القائمة الجانبية للموبايل */
+    #mobileDrawer { transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+    #mobileDrawer.open { transform: translateX(0); }
   </style>
 </head>
-<body class="overflow-x-hidden">
+<body>
 
-  <header class="bg-[#000814]/95 backdrop-blur-lg sticky top-0 z-[100] border-b border-blue-600/30">
-    <div class="container mx-auto flex items-center justify-between p-4">
-      <div class="flex items-center gap-2">
+  <div class="stars" id="starField"></div>
+
+  <header class="bg-[#000814]/90 backdrop-blur-xl sticky top-0 z-[100] border-b border-white/5">
+    <div class="container mx-auto flex items-center justify-between p-4 md:px-8">
+      <div class="flex items-center gap-3">
          <img src="ZORO.STORE.jpeg" class="w-10 h-10 rounded-full border-2 border-[#ffd700]" alt="Logo">
-         <h1 class="text-2xl font-black text-white tracking-tighter italic">ZORO<span class="text-[#ffd700]">.</span>STORE</h1>
+         <h1 class="text-2xl font-black text-white italic">ZORO<span class="text-[#ffd700]">.</span>STORE</h1>
       </div>
 
       <nav class="hidden lg:flex items-center gap-8 text-white font-bold">
-          <a href="index.html" class="text-[#ffd700]">الرئيسية</a>
+          <a href="index.html" class="hover:text-[#ffd700] transition text-[#ffd700]">الرئيسية</a>
           <div class="relative group">
-            <button id="sectionsBtn" class="flex items-center gap-2 hover:text-[#ffd700] transition">الأقسام <i class="fas fa-chevron-down text-xs"></i></button>
-            <ul id="sectionsDropdown" class="absolute right-0 mt-4 w-64 bg-[#001d3d] rounded-2xl shadow-2xl text-right py-3 hidden border border-blue-500/20 overflow-hidden">
+            <button id="sectionsBtn" class="flex items-center gap-2 hover:text-[#ffd700] transition focus:outline-none">
+                الأقسام <i class="fas fa-chevron-down text-[10px]"></i>
+            </button>
+            <ul id="sectionsDropdown" class="absolute right-0 mt-6 w-64 bg-[#001d3d] rounded-2xl shadow-2xl py-3 border border-blue-500/20 z-[110]">
               <li><a href="AP.html" class="px-5 py-3 hover:bg-blue-600/20 flex items-center gap-3 transition"><i class="fas fa-tv text-blue-400"></i> اشتراكات رقمية</a></li>
-              <li><a href="PS4.html" class="px-5 py-3 hover:bg-blue-600/20 flex items-center gap-3 transition"><i class="fab fa-playstation text-blue-500"></i> ألعاب سوني فور</a></li>
-              <li><a href="PS5.html" class="px-5 py-3 hover:bg-blue-600/20 flex items-center gap-3 transition"><i class="fab fa-playstation text-indigo-400"></i> ألعاب سوني فايف</a></li>
+              <li><a href="PS4.html" class="px-5 py-3 hover:bg-blue-600/20 flex items-center gap-3 transition"><i class="fab fa-playstation text-blue-500"></i> ألعاب سوني 4</a></li>
+              <li><a href="PS5.html" class="px-5 py-3 hover:bg-blue-600/20 flex items-center gap-3 transition"><i class="fas fa-gamepad text-indigo-400"></i> ألعاب سوني 5</a></li>
               <li><a href="Xbox.html" class="px-5 py-3 hover:bg-blue-600/20 flex items-center gap-3 transition"><i class="fab fa-xbox text-green-400"></i> ألعاب إكس بوكس</a></li>
               <li><a href="PC.html" class="px-5 py-3 hover:bg-blue-600/20 flex items-center gap-3 transition"><i class="fas fa-laptop-code text-cyan-400"></i> ألعاب PC</a></li>
               <li><a href="Currency Packs.html" class="px-5 py-3 hover:bg-blue-600/20 flex items-center gap-3 transition"><i class="fas fa-gem text-yellow-400"></i> عملات الألعاب</a></li>
@@ -67,48 +85,65 @@
     </div>
   </header>
 
-  <section class="bg-vibrant-blue pt-16 pb-32 relative overflow-hidden">
-    <div class="absolute top-0 right-10 z-20 lantern-placeholder">
-        <img src="lantern-right.png" alt="" class="w-32 md:w-44 drop-shadow-[0_0_20px_rgba(255,215,0,0.3)]"> 
+  <div id="drawerOverlay" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-[150] hidden"></div>
+  <div id="mobileDrawer" class="fixed top-0 right-0 h-full w-[280px] bg-[#00122e] z-[200] p-6 border-l border-white/10 shadow-2xl">
+      <div class="flex justify-between items-center mb-10">
+          <span class="text-[#ffd700] font-black italic">ZORO.STORE</span>
+          <button id="closeDrawer" class="text-white text-2xl"><i class="fas fa-times"></i></button>
+      </div>
+      <nav class="flex flex-col gap-6 text-white font-bold">
+          <a href="index.html" class="text-[#ffd700] flex items-center gap-3"><i class="fas fa-home"></i> الرئيسية</a>
+          <div class="h-px bg-white/10"></div>
+          <a href="AP.html" class="flex items-center gap-3"><i class="fas fa-tv text-blue-400"></i> اشتراكات رقمية</a>
+          <a href="PS5.html" class="flex items-center gap-3"><i class="fas fa-gamepad text-indigo-400"></i> ألعاب سوني</a>
+          <a href="Currency Packs.html" class="flex items-center gap-3"><i class="fas fa-gem text-yellow-400"></i> عملات الألعاب</a>
+          <div class="h-px bg-white/10"></div>
+          <a href="#contact" class="flex items-center gap-3"><i class="fas fa-envelope text-gray-400"></i> تواصل معنا</a>
+      </nav>
+  </div>
+
+  <section class="bg-vibrant-blue pt-12 pb-24 relative overflow-hidden">
+    <div class="absolute top-0 right-5 z-20 lantern-placeholder">
+        <img src="lantern-right.png" alt="" class="w-28 md:w-44 drop-shadow-[0_0_20px_rgba(255,215,0,0.4)]"> 
     </div>
-    <div class="absolute top-0 left-10 z-20 lantern-placeholder" style="animation-delay: 1s;">
-        <img src="lantern-left.png" alt="" class="w-24 md:w-32 drop-shadow-[0_0_20px_rgba(255,215,0,0.3)]">
+    <div class="absolute top-5 left-5 z-20 lantern-placeholder" style="animation-delay: 1s;">
+        <img src="lantern-left.png" alt="" class="w-20 md:w-32 drop-shadow-[0_0_20px_rgba(255,215,0,0.4)]">
     </div>
 
     <div class="container mx-auto px-6 flex flex-col lg:flex-row items-center relative z-10 text-center lg:text-right">
       <div class="lg:w-1/2">
-        <span class="bg-blue-600/20 text-blue-300 border border-blue-500/50 px-5 py-2 rounded-full text-sm font-black mb-6 inline-block">
+        <span class="bg-blue-600/20 text-blue-300 border border-blue-500/30 px-5 py-2 rounded-full text-sm font-black mb-6 inline-block">
             <i class="fas fa-star-and-crescent ml-2 text-[#ffd700]"></i> عروض ليالي الخير الرمضانية
         </span>
         <h2 class="text-5xl lg:text-7xl font-extrabold text-white leading-tight">عالمك الرقمي <br><span class="gold-glow">يضيء في رمضان</span></h2>
-        <p class="mt-6 text-lg lg:text-xl text-blue-100/70 max-w-xl">متجر ZORO.STORE العماني يقدم لك أفضل الاشتراكات والألعاب بلمسة رمضانية ساحرة.</p>
+        <p class="mt-6 text-lg text-blue-100/70 max-w-xl mx-auto lg:mx-0">متجر ZORO.STORE العماني يقدم لك أفضل الاشتراكات والألعاب بلمسة رمضانية ساحرة وضمان موثوق 🇴🇲</p>
         <div class="mt-10 flex flex-wrap justify-center lg:justify-start gap-4">
-            <a href="#ramadan-offers" class="bg-[#ffd700] text-[#000814] px-10 py-4 rounded-2xl shadow-xl hover:bg-white transition font-black text-lg">عروض رمضان</a>
-            <a href="#categoriesSection" class="bg-blue-600 text-white px-10 py-4 rounded-2xl hover:bg-blue-500 transition font-bold text-lg">الأقسام</a>
+            <a href="#ramadan-offers" class="bg-[#ffd700] text-[#000814] px-10 py-4 rounded-2xl shadow-lg hover:scale-105 transition font-black">عروض رمضان</a>
+            <a href="#categoriesSection" class="bg-white/5 text-white border border-white/10 px-10 py-4 rounded-2xl hover:bg-white/10 transition font-bold">الأقسام</a>
         </div>
       </div>
       <div class="lg:w-1/2 mt-16 lg:mt-0 flex justify-center">
         <div class="relative group">
             <div class="absolute -inset-10 bg-blue-600/20 rounded-full blur-[80px]"></div>
-            <img src="ZORO.STORE.rm.jpeg" class="w-72 lg:w-96 rounded-[3rem] shadow-2xl border-4 border-[#ffd700]/40 relative transform hover:rotate-1 transition">
+            <img src="ZORO.STORE.rm.jpeg" class="w-72 lg:w-96 rounded-[3rem] shadow-2xl border-4 border-[#ffd700]/30 relative transform hover:rotate-2 transition duration-500">
         </div>
       </div>
     </div>
   </section>
 
-  <div class="container mx-auto -mt-16 px-6 relative z-20">
+  <div class="container mx-auto -mt-16 px-6 relative z-30">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="blue-card p-8 rounded-3xl flex items-center gap-5 border-b-4 border-b-blue-500">
-              <div class="w-16 h-16 bg-[#ffd700]/10 text-[#ffd700] rounded-2xl flex items-center justify-center text-3xl"><i class="fas fa-bolt-lightning"></i></div>
-              <div><h4 class="font-bold text-xl text-white">مباشرة</h4><p class="text-sm text-blue-200/60">تسليم الطلبات في ثوانٍ</p></div>
+          <div class="blue-card p-8 rounded-3xl flex items-center gap-5 border-b-4 border-b-blue-600">
+              <div class="w-16 h-16 bg-blue-600/10 text-blue-400 rounded-2xl flex items-center justify-center text-3xl"><i class="fas fa-bolt"></i></div>
+              <div><h4 class="font-bold text-white">تسليم مباشر</h4><p class="text-sm text-gray-500">تفعيل فوري لطلبك</p></div>
           </div>
           <div class="blue-card p-8 rounded-3xl flex items-center gap-5 border-b-4 border-b-[#ffd700]">
-              <div class="w-16 h-16 bg-[#ffd700]/10 text-[#ffd700] rounded-2xl flex items-center justify-center text-3xl"><i class="fas fa-award"></i></div>
-              <div><h4 class="font-bold text-xl text-white">هوية عمانية موثوقة</h4><p class="text-sm text-blue-200/60">ضمان ذهبي 100%</p></div>
+              <div class="w-16 h-16 bg-[#ffd700]/10 text-[#ffd700] rounded-2xl flex items-center justify-center text-3xl"><i class="fas fa-check-double"></i></div>
+              <div><h4 class="font-bold text-white">متجر عماني 🇴🇲</h4><p class="text-sm text-gray-500">ثقة وضمان 100%</p></div>
           </div>
-          <div class="blue-card p-8 rounded-3xl flex items-center gap-5 border-b-4 border-b-blue-500">
-              <div class="w-16 h-16 bg-[#ffd700]/10 text-[#ffd700] rounded-2xl flex items-center justify-center text-3xl"><i class="fas fa-headset"></i></div>
-              <div><h4 class="font-bold text-xl text-white">دعم متواصل خلال 24 ساعة</h4><p class="text-sm text-blue-200/60">خدمتكم هي أولويتنا</p></div>
+          <div class="blue-card p-8 rounded-3xl flex items-center gap-5 border-b-4 border-b-blue-600">
+              <div class="w-16 h-16 bg-blue-600/10 text-blue-400 rounded-2xl flex items-center justify-center text-3xl"><i class="fas fa-headset"></i></div>
+              <div><h4 class="font-bold text-white">دعم متواصل</h4><p class="text-sm text-gray-500">نحن معك على مدار الساعة</p></div>
           </div>
       </div>
   </div>
@@ -118,98 +153,44 @@
         <h2 class="text-4xl font-black gold-glow mb-16">🌙 عروض رمضان الحصرية</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="blue-card rounded-[2.5rem] overflow-hidden group">
-                <img src="images/devil.jpg" class="w-full h-56 object-cover opacity-80 group-hover:opacity-100 transition duration-500">
+                <img src="images/devil.jpg" class="w-full h-56 object-cover opacity-80 group-hover:opacity-100 transition">
                 <div class="p-6">
-                    <h3 class="text-xl font-bold text-white mb-2">على جميع اشتراكات المشاهده</h3>
-                    <p class="text-[#ffd700] text-3xl font-black mb-6">٢٩ ر.ع <span class="text-sm text-gray-400 line-through">٣٤ ر.ع</span></p>
-                    <a href="https://wa.me/96879236441" class="block bg-blue-600 text-white py-3 rounded-xl font-bold hover:bg-blue-500">اطلب الآن</a>
+                    <h3 class="text-xl font-bold text-white mb-2">اشتراكات المشاهدة</h3>
+                    <p class="text-[#ffd700] text-3xl font-black mb-6">٢٩ ر.ع <span class="text-sm text-gray-500 line-through">٣٤ ر.ع</span></p>
+                    <a href="https://wa.me/96879236441" class="block bg-blue-600 text-white py-3 rounded-xl font-bold">اطلب الآن</a>
                 </div>
             </div>
-            <div class="blue-card rounded-[2.5rem] overflow-hidden group border-2 border-[#ffd700]/40 scale-105 shadow-[0_0_30px_rgba(255,215,0,0.1)]">
-                <img src="images/shahid.webp" class="w-full h-56 object-cover opacity-80 group-hover:opacity-100 transition duration-500">
+            
+            <div class="blue-card rounded-[2.5rem] overflow-hidden group border-2 border-[#ffd700]/40 scale-105 shadow-2xl z-10">
+                <img src="images/shahid.webp" class="w-full h-56 object-cover group-hover:scale-110 transition duration-700">
                 <div class="p-6">
                     <h3 class="text-xl font-bold text-white mb-2">شاهد VIP (سنة كاملة)</h3>
-                    <p class="text-[#ffd700] text-3xl font-black mb-6">عرض رمضاني</p>
-                    <a href="https://wa.me/96879236441" class="block bg-[#ffd700] text-[#000814] py-3 rounded-xl font-black italic">اطلب الآن 🌙</a>
+                    <p class="text-[#ffd700] text-3xl font-black mb-6">عرض رمضاني 🌙</p>
+                    <a href="https://wa.me/96879236441" class="block bg-[#ffd700] text-[#000814] py-3 rounded-xl font-black">اطلب الآن</a>
                 </div>
             </div>
+
             <div class="blue-card rounded-[2.5rem] overflow-hidden group">
-                <img src="images/ps5_4.jpg" class="w-full h-56 object-cover opacity-80 group-hover:opacity-100 transition duration-500">
+                <img src="images/ps5_4.jpg" class="w-full h-56 object-cover opacity-80 group-hover:opacity-100 transition">
                 <div class="p-6">
                     <h3 class="text-xl font-bold text-white mb-2">بكج ألعاب سوني</h3>
                     <p class="text-[#ffd700] text-3xl font-black mb-6">١٥ ر.ع</p>
-                    <a href="https://wa.me/96879236441" class="block bg-blue-600 text-white py-3 rounded-xl font-bold hover:bg-blue-500">اطلب الآن</a>
+                    <a href="https://wa.me/96879236441" class="block bg-blue-600 text-white py-3 rounded-xl font-bold">اطلب الآن</a>
                 </div>
             </div>
         </div>
     </div>
   </section>
 
-  <section class="container mx-auto py-24 px-6" id="categoriesSection">
-    <h2 class="text-3xl font-black text-white mb-12 text-right">استكشف كافة الأقسام</h2>
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
-      
-      <a href="AP.html" class="blue-card p-8 rounded-3xl flex flex-col items-center gap-4 group">
-        <div class="w-16 h-16 bg-blue-600/10 text-blue-400 rounded-2xl flex items-center justify-center text-3xl group-hover:bg-[#ffd700] group-hover:text-black transition duration-500">
-            <i class="fas fa-tv"></i>
-        </div>
-        <span class="font-bold text-white">اشتراكات رقمية</span>
-      </a>
-
-      <a href="PS4.html" class="blue-card p-8 rounded-3xl flex flex-col items-center gap-4 group">
-        <div class="w-16 h-16 bg-blue-600/10 text-blue-400 rounded-2xl flex items-center justify-center text-3xl group-hover:bg-blue-500 group-hover:text-white transition duration-500">
-            <i class="fab fa-playstation"></i>
-        </div>
-        <span class="font-bold text-white">ألعاب سوني 4</span>
-      </a>
-
-      <a href="PS5.html" class="blue-card p-8 rounded-3xl flex flex-col items-center gap-4 group">
-        <div class="w-16 h-16 bg-blue-600/10 text-indigo-400 rounded-2xl flex items-center justify-center text-3xl group-hover:bg-indigo-500 group-hover:text-white transition duration-500">
-            <i class="fas fa-gamepad"></i>
-        </div>
-        <span class="font-bold text-white">ألعاب سوني 5</span>
-      </a>
-
-      <a href="Xbox.html" class="blue-card p-8 rounded-3xl flex flex-col items-center gap-4 group">
-        <div class="w-16 h-16 bg-blue-600/10 text-green-400 rounded-2xl flex items-center justify-center text-3xl group-hover:bg-green-500 group-hover:text-white transition duration-500">
-            <i class="fab fa-xbox"></i>
-        </div>
-        <span class="font-bold text-white">ألعاب إكس بوكس</span>
-      </a>
-
-      <a href="PC.html" class="blue-card p-8 rounded-3xl flex flex-col items-center gap-4 group">
-        <div class="w-16 h-16 bg-blue-600/10 text-cyan-400 rounded-2xl flex items-center justify-center text-3xl group-hover:bg-cyan-500 group-hover:text-white transition duration-500">
-            <i class="fas fa-laptop-code"></i>
-        </div>
-        <span class="font-bold text-white">ألعاب PC</span>
-      </a>
-
-      <a href="Currency Packs.html" class="blue-card p-8 rounded-3xl flex flex-col items-center gap-4 group">
-        <div class="w-16 h-16 bg-blue-600/10 text-yellow-400 rounded-2xl flex items-center justify-center text-3xl group-hover:bg-yellow-500 group-hover:text-black transition duration-500">
-            <i class="fas fa-gem"></i>
-        </div>
-        <span class="font-bold text-white text-center">عملات الألعاب</span>
-      </a>
-
-      <a href="skins.html" class="blue-card p-8 rounded-3xl flex flex-col items-center gap-4 group">
-        <div class="w-16 h-16 bg-blue-600/10 text-purple-400 rounded-2xl flex items-center justify-center text-3xl group-hover:bg-purple-500 group-hover:text-white transition duration-500">
-            <i class="fas fa-user-ninja"></i>
-        </div>
-        <span class="font-bold text-white">السكنات</span>
-      </a>
-
-    </div>
-  </section>
-
-  <footer id="contact" class="bg-[#000814] text-white pt-20 pb-10 px-6 border-t border-blue-600/20"> 
+  <footer id="contact" class="bg-[#000814] text-white pt-20 pb-10 px-6 border-t border-white/5"> 
     <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-right">
         <div>
             <h3 class="text-3xl font-black mb-6 gold-glow italic">ZORO.STORE</h3>
-            <p class="text-blue-100/60 leading-relaxed">المتجر العماني الأول للمنتجات الرقمية. جودة وثقة في كل طلب خلال ليالي الشهر المبارك. 🇴🇲</p>
+            <p class="text-gray-500 leading-relaxed">المتجر العماني الأول للمنتجات الرقمية. جودة وثقة في كل طلب خلال ليالي الشهر المبارك. 🇴🇲</p>
         </div>
         <div>
             <h4 class="text-xl font-bold mb-6 text-[#ffd700]">روابط سريعة</h4>
-            <ul class="flex flex-col gap-4 font-bold text-gray-500">
+            <ul class="flex flex-col gap-4 text-gray-500">
                 <li><a href="index.html" class="hover:text-white transition">الرئيسية</a></li>
                 <li><a href="#ramadan-offers" class="hover:text-white transition">عروض رمضان</a></li>
             </ul>
@@ -229,18 +210,53 @@
 
   <script> 
     document.addEventListener('DOMContentLoaded', function(){ 
-      const mobileBtn = document.getElementById('mobileBtn'); 
-      const mobileMenu = document.getElementById('mobileMenu'); 
       const sectionsBtn = document.getElementById('sectionsBtn');
       const sectionsDropdown = document.getElementById('sectionsDropdown');
+      const mobileBtn = document.getElementById('mobileBtn');
+      const mobileDrawer = document.getElementById('mobileDrawer');
+      const drawerOverlay = document.getElementById('drawerOverlay');
+      const closeDrawer = document.getElementById('closeDrawer');
 
-      sectionsBtn?.addEventListener('click', (e) => {
-        e.stopPropagation();
-        sectionsDropdown.classList.toggle('hidden');
-      });
+      // 1. فتح/إغلاق قائمة الأقسام (Dropdown)
+      if(sectionsBtn && sectionsDropdown) {
+          sectionsBtn.addEventListener('click', (e) => {
+              e.stopPropagation();
+              sectionsDropdown.classList.toggle('show');
+          });
 
-      document.addEventListener('click', () => sectionsDropdown?.classList.add('hidden'));
-      mobileBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+          // إغلاق عند النقر في الخارج
+          document.addEventListener('click', (e) => {
+              if (!sectionsBtn.contains(e.target) && !sectionsDropdown.contains(e.target)) {
+                  sectionsDropdown.classList.remove('show');
+              }
+          });
+      }
+
+      // 2. قائمة الموبايل (Drawer)
+      const toggleDrawer = () => {
+          mobileDrawer.classList.toggle('open');
+          drawerOverlay.classList.toggle('hidden');
+          document.body.classList.toggle('overflow-hidden');
+      };
+
+      mobileBtn?.addEventListener('click', toggleDrawer);
+      closeDrawer?.addEventListener('click', toggleDrawer);
+      drawerOverlay?.addEventListener('click', toggleDrawer);
+
+      // 3. إنشاء النجوم في الخلفية
+      const starField = document.getElementById('starField');
+      if(starField) {
+          for(let i=0; i<60; i++) {
+              const star = document.createElement('div');
+              star.className = 'star';
+              star.style.left = Math.random() * 100 + '%';
+              star.style.top = Math.random() * 100 + '%';
+              star.style.width = Math.random() * 3 + 'px';
+              star.style.height = star.style.width;
+              star.style.setProperty('--duration', (Math.random() * 3 + 2) + 's');
+              starField.appendChild(star);
+          }
+      }
     });
   </script> 
 </body> 
