@@ -27,7 +27,7 @@
         #filterDelayed.active-btn { background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%); }
 
         #mobileSectionsList { max-height: 0; overflow: hidden; transition: all 0.4s ease; }
-        #mobileSectionsList.open { max-height: 600px; padding: 10px 0; }
+        #mobileSectionsList.open { max-height: 800px; padding: 10px 0; }
         .z-dropdown { z-index: 9999 !important; }
     </style>
 </head>
@@ -43,12 +43,14 @@
           <button id="sectionsBtn" class="flex items-center gap-2 hover:text-yellow-400 focus:outline-none">
             الأقسام <i class="fas fa-chevron-down text-sm"></i>
           </button>
-          <ul id="sectionsDropdown" class="absolute right-0 mt-2 w-56 bg-white rounded-md shadow-2xl text-right py-2 hidden text-gray-800 z-dropdown">
-            <li><a href="AP.html" class="block px-4 py-2 hover:bg-green-50 border-b">اشتراكات رقمية</a></li>
-            <li><a href="PS4.html" class="block px-4 py-2 hover:bg-green-50 border-b">ألعاب سوني فور</a></li>
-            <li><a href="PS5.html" class="block px-4 py-2 bg-green-100 font-bold">ألعاب سوني فايف</a></li>
-            <li><a href="Xbox.html" class="block px-4 py-2 hover:bg-green-50 border-b">ألعاب إكس بوكس</a></li>
-            <li><a href="Currency Packs.html" class="block px-4 py-2 hover:bg-green-50">عملات الألعاب</a></li>
+          <ul id="sectionsDropdown" class="absolute right-0 mt-2 w-64 bg-white rounded-md shadow-2xl text-right py-2 hidden text-gray-800 z-dropdown">
+            <li><a href="AP.html" class="block px-4 py-2 hover:bg-green-50 border-b flex items-center gap-2"><i class="fas fa-tags text-green-600"></i> اشتراكات رقمية</a></li>
+            <li><a href="PS4.html" class="block px-4 py-2 hover:bg-green-50 border-b flex items-center gap-2"><i class="fab fa-playstation text-blue-700"></i> ألعاب سوني فور</a></li>
+            <li><a href="PS5.html" class="block px-4 py-2 bg-green-100 font-bold flex items-center gap-2"><i class="fab fa-playstation text-purple-600"></i> ألعاب سوني فايف</a></li>
+            <li><a href="Xbox.html" class="block px-4 py-2 hover:bg-green-50 border-b flex items-center gap-2"><i class="fab fa-xbox text-green-700"></i> ألعاب إكس بوكس</a></li>
+            <li><a href="PC.html" class="block px-4 py-2 hover:bg-green-50 border-b flex items-center gap-2"><i class="fas fa-desktop text-blue-500"></i> ألعاب بي سي (PC)</a></li>
+            <li><a href="Currency Packs.html" class="block px-4 py-2 hover:bg-green-50 border-b flex items-center gap-2"><i class="fas fa-coins text-yellow-500"></i> عملات الألعاب</a></li>
+            <li><a href="skins.html" class="block px-4 py-2 hover:bg-green-50 flex items-center gap-2"><i class="fas fa-puzzle-piece text-purple-600"></i> السكنات</a></li>
           </ul>
         </div>
         <a href="https://api.whatsapp.com/send?phone=96879236441" class="hover:text-yellow-400">تواصل معنا</a>
@@ -64,7 +66,11 @@
       <div id="mobileSectionsList" class="bg-gray-50 pr-4">
         <a href="AP.html" class="py-2 block border-b text-sm">اشتراكات رقمية</a>
         <a href="PS4.html" class="py-2 block border-b text-sm">ألعاب سوني فور</a>
-        <a href="PS5.html" class="py-2 block text-sm text-green-700">ألعاب سوني فايف</a>
+        <a href="PS5.html" class="py-2 block border-b text-sm text-green-700">ألعاب سوني فايف</a>
+        <a href="Xbox.html" class="py-2 block border-b text-sm">ألعاب إكس بوكس</a>
+        <a href="PC.html" class="py-2 block border-b text-sm">ألعاب بي سي (PC)</a>
+        <a href="Currency Packs.html" class="py-2 block border-b text-sm">عملات الألعاب</a>
+        <a href="skins.html" class="py-2 block text-sm">السكنات</a>
       </div>
       <a href="https://api.whatsapp.com/send?phone=96879236441" class="py-3 text-gray-700">تواصل معنا</a>
     </nav>
@@ -88,19 +94,19 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const ps5Games = [
-    { name: 'بلاك أبس ٧', status: 'تأخير', price: 'بحسابك الأساسي: ٨.٥ ريال', img: 'images/ps5_1.png' },
+    { name: 'بلاك أبس ٧', status: 'تأخير', price: 'أساسي: ٨.٥ ر.ع', img: 'images/ps5_1.png' },
     { name: 'جراند ٥', status: 'فوري', price: 'أساسي: ٥.٥ ر.ع | حساب: ٢ ر.ع', img: 'images/ps5_2.jpg' },
-    { name: 'فيفا ٢٦', status: 'فوري', price: 'بحسابك الأساسي: ٨.٥ ريال', img: 'images/ps5_3.jpg' },
+    { name: 'فيفا ٢٦', status: 'فوري', price: 'أساسي: ٨.٥ ر.ع', img: 'images/ps5_3.jpg' },
     { name: 'فورزا هورايزن ٥', status: 'فوري', price: 'أساسي: ٧.٥ ر.ع | حساب: ٥.٥ ر.ع', img: 'images/ps5_4.jpg' },
-    { name: 'ذا لاست أف أس 1', status: 'تأخير', price: 'بحسابك الأساسي: ٥ ريال', img: 'images/ps5_5.jpg' },
+    { name: 'ذا لاست أف أس 1', status: 'تأخير', price: 'أساسي: ٥ ر.ع', img: 'images/ps5_5.jpg' },
     { name: 'سبايدر مان ٢', status: 'تأخير', price: 'أساسي: ١٠ ر.ع | حساب: ٦ ر.ع', img: 'images/ps5_6.jpg' },
-    { name: 'جود أف وور', status: 'فوري', price: 'بحسابك الأساسي: ٨.٥ ريال', img: 'images/ps5_7.jpg' },
+    { name: 'جود أف وور', status: 'فوري', price: 'أساسي: ٨.٥ ر.ع', img: 'images/ps5_7.jpg' },
     { name: 'ماين كرافت', status: 'تأخير', price: 'أساسي: ٥.٥ ر.ع | حساب: ٣.٥ ر.ع', img: 'images/ps5_8.jpg' },
-    { name: 'رزدنت إيفل ٤', status: 'تأخير', price: 'بحسابك الأساسي: ٥ ريال', img: 'images/ps5_9.jpg' },
-    { name: 'فيفا ٢٥', status: 'فوري', price: 'بنفس الحساب: ٤ ريال', img: 'images/ps5_10.jpg' },
-    { name: 'ردد ردمشن ٢', status: 'تأخير', price: 'بحسابك الأساسي: ٥ ريال', img: 'images/ps5_11.jpg' },
-    { name: 'بلاك أبس ٦', status: 'فوري', price: 'بحسابك الأساسي: ٨.٥ ريال', img: 'images/ps5_12.jpg' },
-    { name: 'ريماتش', status: 'فوري', price: 'بحسابك الأساسي: ٥.٥ ريال', img: 'images/ps5_13.jpg' },
+    { name: 'رزدنت إيفل ٤', status: 'تأخير', price: 'أساسي: ٥ ر.ع', img: 'images/ps5_9.jpg' },
+    { name: 'فيفا ٢٥', status: 'فوري', price: 'بنفس الحساب: ٤ ر.ع', img: 'images/ps5_10.jpg' },
+    { name: 'ردد ردمشن ٢', status: 'تأخير', price: 'أساسي: ٥ ر.ع', img: 'images/ps5_11.jpg' },
+    { name: 'بلاك أبس ٦', status: 'فوري', price: 'أساسي: ٨.٥ ر.ع', img: 'images/ps5_12.jpg' },
+    { name: 'ريماتش', status: 'فوري', price: 'أساسي: ٥.٥ ر.ع', img: 'images/ps5_13.jpg' },
     { name: 'لاست أف أس ٢', status: 'تأخير', price: 'أساسي: ٧ ر.ع | حساب: ٤ ر.ع', img: 'images/ps5_14.jpg' },
     { name: 'NBA 2K25', status: 'فوري', price: 'أساسي: ٧ ر.ع | حساب: ٥ ر.ع', img: 'images/ps5_15.jpg' },
     { name: 'بلاك ميث', status: 'تأخير', price: 'أساسي: ١٢.٥ ر.ع | حساب: ٨.٥ ر.ع', img: 'images/ps5_16.jpg' },
@@ -128,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <h3 class="font-bold text-gray-800 mb-2 text-sm md:text-base">${item.name}</h3>
             <p class="text-green-600 font-bold bg-green-50 py-2 rounded-lg text-[13px] border border-green-100 mb-3">${item.price}</p>
             <div class="flex gap-2">
-              <a href="https://api.whatsapp.com/send?phone=96879236441&text=طلب: ${encodeURIComponent(item.name)}" class="flex-1 bg-green-600 text-white py-2 rounded-xl text-xs font-bold flex items-center justify-center gap-1"><i class="fab fa-whatsapp"></i> شراء</a>
+              <a href="https://api.whatsapp.com/send?phone=96879236441&text=طلب PS5: ${encodeURIComponent(item.name)}" class="flex-1 bg-green-600 text-white py-2 rounded-xl text-xs font-bold flex items-center justify-center gap-1"><i class="fab fa-whatsapp"></i> شراء</a>
               <a href="https://www.instagram.com/r.zoro_store/" class="w-10 bg-gradient-to-tr from-yellow-500 via-pink-500 to-purple-500 text-white rounded-xl flex items-center justify-center"><i class="fab fa-instagram"></i></a>
             </div>
           </div>`;
@@ -137,13 +143,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // القوائم
+  // برمجة القوائم
   document.getElementById('sectionsBtn').onclick = (e) => { e.stopPropagation(); document.getElementById('sectionsDropdown').classList.toggle('hidden'); };
   document.getElementById('mobileBtn').onclick = () => document.getElementById('mobileMenu').classList.toggle('hidden');
   document.getElementById('mobileSectionsBtn').onclick = () => document.getElementById('mobileSectionsList').classList.toggle('open');
   document.addEventListener('click', () => { document.getElementById('sectionsDropdown').classList.add('hidden'); });
 
-  // أزرار الفلترة
+  // الفلترة
   const filters = { 'filterAll': 'الكل', 'filterInstant': 'فوري', 'filterDelayed': 'تأخير' };
   Object.keys(filters).forEach(id => {
     document.getElementById(id).onclick = function() {
