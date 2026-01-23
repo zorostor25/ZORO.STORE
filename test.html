@@ -57,7 +57,7 @@
   <header class="bg-[#1f3c2a] shadow-xl sticky top-0 z-[100] border-b border-white/10"> 
     <div class="container mx-auto flex items-center justify-between p-4"> 
       <div class="flex items-center gap-2">
-         <img src="ZORO.STORE.jpeg" class="w-10 h-10 rounded-full" alt="Logo">
+         <img src="ZORO.STORE.jpeg" class="w-10 h-10 rounded-full border border-yellow-400" alt="Logo">
          <h1 class="text-2xl font-black text-white tracking-tighter">ZORO<span class="text-yellow-400">.</span>STORE</h1> 
       </div>
 
@@ -271,6 +271,7 @@
       const mobileSectionsBtn = document.getElementById('mobileSectionsBtn'); 
       const mobileSectionsList = document.getElementById('mobileSectionsList'); 
  
+      // Desktop Dropdown
       sectionsBtn?.addEventListener('click', (e) => {
         e.stopPropagation();
         sectionsDropdown.classList.toggle('hidden');
@@ -278,6 +279,7 @@
 
       document.addEventListener('click', () => sectionsDropdown?.classList.add('hidden'));
 
+      // Mobile Menu
       mobileBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
       mobileSectionsBtn?.addEventListener('click', () => {
         mobileSectionsList.classList.toggle('open');
