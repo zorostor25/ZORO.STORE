@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>ZORO STORE - ألعاب PC</title>
+    <link rel="icon" type="image/png" href="ZORO.STORE.jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #f9fafb; font-family: 'Cairo', sans-serif; overflow-x: hidden; }
+        header { background-color: #1f3c2a; }
+        .card { transition: all 0.3s ease; border-radius: 1rem; overflow: hidden; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        
+        #mobileSectionsList { max-height: 0; overflow: hidden; transition: all 0.4s ease; }
+        #mobileSectionsList.open { max-height: 800px; padding: 10px 0; }
+        .z-dropdown { z-index: 9999 !important; }
+    </style>
+</head>
+<body>
+
+<header class="bg-[#1f3c2a] shadow-md sticky top-0 z-[100]">
+  <div class="container mx-auto flex items-center justify-between p-4">
+    <h1 class="text-xl md:text-2xl font-bold text-white">ZORO.STORE</h1>
+    <div class="flex items-center gap-2">
+      <nav class="hidden md:flex items-center gap-6 text-white font-bold">
+        <a href="index.html" class="hover:text-yellow-400">الرئيسية</a>
+        <div class="relative group">
+          <button id="sectionsBtn" class="flex items-center gap-2 hover:text-yellow-400 focus:outline-none">
+            الأقسام <i class="fas fa-chevron-down text-sm"></i>
+          </button>
+          <ul id="sectionsDropdown" class="absolute right-0 mt-2 w-64 bg-white rounded-md shadow-2xl text-right py-2 hidden text-gray-800 z-dropdown">
+            <li><a href="AP.html" class="block px-4 py-2 hover:bg-green-50 border-b flex items-center gap-2"><i class="fas fa-tags text-green-600"></i> اشتراكات رقمية</a></li>
+            <li><a href="PS4.html" class="block px-4 py-2 hover:bg-green-50 border-b flex items-center gap-2"><i class="fab fa-playstation text-blue-700"></i> ألعاب سوني فور</a></li>
+            <li><a href="PS5.html" class="block px-4 py-2 hover:bg-green-50 border-b flex items-center gap-2"><i class="fab fa-playstation text-purple-600"></i> ألعاب سوني فايف</a></li>
+            <li><a href="Xbox.html" class="block px-4 py-2 hover:bg-green-50 border-b flex items-center gap-2"><i class="fab fa-xbox text-green-700"></i> ألعاب إكس بوكس</a></li>
+            <li><a href="PC.html" class="block px-4 py-2 bg-green-100 font-bold flex items-center gap-2"><i class="fas fa-desktop text-blue-500"></i> ألعاب بي سي (PC)</a></li>
+            <li><a href="Currency Packs.html" class="block px-4 py-2 hover:bg-green-50 border-b flex items-center gap-2"><i class="fas fa-coins text-yellow-500"></i> عملات الألعاب</a></li>
+            <li><a href="skins.html" class="block px-4 py-2 hover:bg-green-50 flex items-center gap-2"><i class="fas fa-puzzle-piece text-purple-600"></i> السكنات</a></li>
+          </ul>
+        </div>
+        <a href="https://api.whatsapp.com/send?phone=96879236441" class="hover:text-yellow-400">تواصل معنا</a>
+      </nav>
+      <button id="mobileBtn" class="md:hidden p-2 text-white"><i class="fas fa-bars text-2xl"></i></button>
+    </div>
+  </div>
+  
+  <div id="mobileMenu" class="md:hidden hidden bg-white border-t">
+    <nav class="flex flex-col p-4 text-right font-bold">
+      <a href="index.html" class="py-3 border-b text-gray-700">الرئيسية</a>
+      <button id="mobileSectionsBtn" class="py-3 border-b text-gray-700 flex justify-between items-center">الأقسام <i class="fas fa-chevron-down"></i></button>
+      <div id="mobileSectionsList" class="bg-gray-50 pr-4">
+        <a href="AP.html" class="py-2 block border-b text-sm">اشتراكات رقمية</a>
+        <a href="PS4.html" class="py-2 block border-b text-sm">ألعاب سوني فور</a>
+        <a href="PS5.html" class="py-2 block border-b text-sm">ألعاب سوني فايف</a>
+        <a href="Xbox.html" class="py-2 block border-b text-sm">ألعاب إكس بوكس</a>
+        <a href="PC.html" class="py-2 block border-b text-sm text-green-700 font-bold">ألعاب بي سي (PC)</a>
+        <a href="Currency Packs.html" class="py-2 block border-b text-sm">عملات الألعاب</a>
+        <a href="skins.html" class="py-2 block text-sm">السكنات</a>
+      </div>
+      <a href="https://api.whatsapp.com/send?phone=96879236441" class="py-3 text-gray-700">تواصل معنا</a>
+    </nav>
+  </div>
+</header>
+
+<section class="container mx-auto py-8 px-4">
+  <h2 class="text-2xl md:text-3xl font-bold text-center mb-10 text-[#1f3c2a] flex items-center justify-center gap-3">
+    <i class="fas fa-desktop text-blue-500 text-3xl"></i> ألعاب الكمبيوتر (PC)
+  </h2>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6" id="pcGamesContainer"></div>
+</section>
+
+<footer class="bg-[#1f3c2a] text-white text-center py-6 mt-10 text-sm">
+  <p>جميع الحقوق محفوظة &copy; 2025 ZORO STORE</p>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const pcGames = [
+    { name: 'هولو نايت', price: '٢ ر.ع', img: 'images/pc_1.jpg' },
+    { name: 'بكج سايلنت هيل', price: '٤ ر.ع', img: 'images/pc_2.jpg' },
+    { name: 'بكج ميتل قير (كل الأجزاء)', price: '٤ ر.ع', img: 'images/pc_3.jpg' },
+    { name: 'ذا لاست أف أس ١', price: '٢ ر.ع', img: 'images/pc_4.jpg' },
+    { name: 'ذا لاست أف أس ٢', price: '٢ ر.ع', img: 'images/pc_5.jpg' },
+    { name: 'بكج +١٢٠ محاكي', price: '٦ ر.ع', img: 'images/pc_6.jpg' },
+    { name: 'ماين كرافت', price: '١٠ ر.ع', img: 'images/pc_7.jpg' },
+    { name: 'جراند ٥ (تدعم الحياة الواقعية)', price: '٧ ر.ع', img: 'images/pc_8.jpg' },
+    { name: 'فورزا', price: '٢ ر.ع', img: 'images/pc_9.jpg' },
+    { name: 'بكج داينق لايت', price: '٣ ر.ع', img: 'images/pc_10.jpg' },
+    { name: 'بكج مافيا (كل الأجزاء)', price: '٣ ر.ع', img: 'images/pc_11.jpg' },
+    { name: 'ريد ديد ٢', price: '٢ ر.ع', img: 'images/pc_12.jpg' },
+    { name: 'مونستر هينستر وايلد', price: '١.٥ ر.ع', img: 'images/pc_13.jpg' },
+    { name: 'كلير أوبسكور ٣٣', price: '٢ ر.ع', img: 'images/pc_14.jpg' },
+    { name: 'كود ٢٠ مودرين وايفر ٣', price: '١٧ ر.ع', img: 'images/pc_15.jpg' },
+    { name: 'ثلاثية باتمان', price: '٢ ر.ع', img: 'images/pc_16.jpg' },
+    { name: 'كود ٢١ بلاك أبس ٦', price: '١٧.٤ ر.ع', img: 'images/pc_17.jpg' },
+    { name: 'جراند أوتو آي في', price: '٥ ر.ع', img: 'images/pc_18.jpg' },
+    { name: 'إلدن رينج أفلاين', price: '٢ ر.ع', img: 'images/pc_19.jpg' },
+    { name: 'سكيرو', price: '١.٥ ر.ع', img: 'images/pc_20.jpg' },
+    { name: 'باتل فيلد ٦', price: '١٨.٥ ر.ع', img: 'images/pc_21.jpg' },
+    { name: 'بلاك أبس ٧', price: '٢٢ ر.ع', img: 'images/pc_22.jpg' },
+    { name: 'فيفا ٢٦', price: '١٢ ر.ع', img: 'images/pc_23.jpg' }
+  ];
+
+  function displayGames(){
+    const container = document.getElementById('pcGamesContainer');
+    container.innerHTML = '';
+    pcGames.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'bg-white shadow-md card border border-gray-100';
+        card.innerHTML = `
+          <div class="relative">
+            <img src="${item.img}" class="w-full h-44 object-cover">
+          </div>
+          <div class="p-4 text-center">
+            <h3 class="font-bold text-gray-800 mb-2 text-sm md:text-base">${item.name}</h3>
+            <p class="text-green-600 font-bold bg-green-50 py-2 rounded-lg text-xl border border-green-100 mb-3">${item.price}</p>
+            <div class="flex gap-2">
+              <a href="https://api.whatsapp.com/send?phone=96879236441&text=طلب PC: ${encodeURIComponent(item.name)}" class="flex-1 bg-green-600 text-white py-2 rounded-xl text-xs font-bold flex items-center justify-center gap-1 hover:bg-green-700">
+                <i class="fab fa-whatsapp"></i> شراء
+              </a>
+              <a href="https://www.instagram.com/r.zoro_store/" class="w-10 bg-gradient-to-tr from-yellow-500 via-pink-500 to-purple-500 text-white rounded-xl flex items-center justify-center hover:opacity-90">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+          </div>`;
+        container.appendChild(card);
+    });
+  }
+
+  // القوائم المنسدلة
+  document.getElementById('sectionsBtn').onclick = (e) => { e.stopPropagation(); document.getElementById('sectionsDropdown').classList.toggle('hidden'); };
+  document.getElementById('mobileBtn').onclick = () => document.getElementById('mobileMenu').classList.toggle('hidden');
+  document.getElementById('mobileSectionsBtn').onclick = () => document.getElementById('mobileSectionsList').classList.toggle('open');
+  document.addEventListener('click', () => { document.getElementById('sectionsDropdown').classList.add('hidden'); });
+
+  displayGames();
+});
+</script>
+</body>
+</html>
